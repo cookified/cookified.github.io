@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import SkillIcon from "@/components/SkillIcon";
 import {
   achievements,
   education,
@@ -89,12 +90,21 @@ export function Skills() {
       <ul className="grid gap-3 sm:grid-cols-2">
         {skills.map((group) => (
           <li key={group.label} className="skill-chip">
-            <p className="mb-1.5 text-[10px] tracking-[0.12em] text-muted uppercase">
+            <p className="mb-2.5 text-[10px] tracking-[0.12em] text-muted uppercase">
               {group.label}
             </p>
-            <p className="text-[12px] leading-[1.8] text-ink/80">
-              {group.items.join(" · ")}
-            </p>
+            <ul className="flex flex-wrap gap-1.5">
+              {group.items.map((item) => (
+                <li key={item.name} className="skill-item" title={item.name}>
+                  <span className="skill-app">
+                    <SkillIcon slug={item.icon} />
+                  </span>
+                  <span className="text-[11.5px] leading-none tracking-[0.01em] text-ink/85">
+                    {item.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>

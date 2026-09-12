@@ -8,7 +8,7 @@ import {
 } from "react-activity-calendar";
 
 const theme: ThemeInput = {
-  light: ["#f3eedc", "#fff1b5", "#e8d98a", "#c4b068", "#6b6758"],
+  light: ["#f4eeda", "#e8d489", "#d9a44a", "#b06e33", "#74324a"],
 };
 
 type ApiResponse = {
@@ -111,9 +111,9 @@ export default function ContributionCalendar() {
               data={data}
               theme={theme}
               colorScheme="light"
-              blockSize={10}
+              blockSize={11}
               blockMargin={3}
-              blockRadius={2}
+              blockRadius={2.5}
               fontSize={10}
               maxLevel={4}
               showColorLegend

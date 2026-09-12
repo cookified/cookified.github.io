@@ -94,41 +94,51 @@ export const skills = [
   {
     label: "Languages",
     items: [
-      "Python",
-      "JavaScript",
-      "TypeScript",
-      "C++",
-      "Java",
-      "SQL",
-      "Rust",
+      { name: "Python", icon: "python" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "C++", icon: "cplusplus" },
+      { name: "Rust", icon: "rust" },
     ],
   },
   {
     label: "Backend",
     items: [
-      "Node.js",
-      "Express.js",
-      "FastAPI",
-      "Flask",
-      "REST",
-      "Rate limiting",
+      { name: "Node.js", icon: "node" },
+      { name: "Express", icon: "express" },
     ],
   },
   {
     label: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "Motion"],
+    items: [
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "next" },
+      { name: "Tailwind CSS", icon: "tailwind" },
+      { name: "Motion", icon: "motion" },
+    ],
   },
   {
     label: "Data",
-    items: ["PostgreSQL", "Firebase", "MongoDB", "Prisma"],
+    items: [
+      { name: "PostgreSQL", icon: "postgres" },
+      { name: "Firebase", icon: "firebase" },
+      { name: "Prisma ORM", icon: "prisma" },
+    ],
   },
   {
-    label: "Infra",
-    items: ["Git", "GitHub Actions", "Docker", "Linux", "Vercel"],
+    label: "Tools",
+    items: [
+      { name: "Git", icon: "git" },
+      { name: "Docker", icon: "docker" },
+      { name: "Linux", icon: "linux" },
+    ],
   },
   {
     label: "Design",
-    items: ["Figma", "Photoshop", "After Effects", "Product craft"],
+    items: [
+      { name: "Figma", icon: "figma" },
+      { name: "Photoshop", icon: "photoshop" },
+      { name: "After Effects", icon: "aftereffects" },
+    ],
   },
 ];
 
