@@ -27,11 +27,12 @@ export default function Section({
       className={`mx-auto max-w-3xl px-6 py-12 sm:px-8 sm:py-14 ${className}`}
       aria-labelledby={hid}
     >
-      <div className="mb-7 flex items-baseline justify-between gap-4">
+      <div className="mb-7 flex items-center justify-between gap-4">
         <h2
           id={hid}
-          className="text-[17px] font-semibold tracking-tight text-ink"
+          className="flex items-center gap-3 text-[17px] font-semibold tracking-tight text-ink"
         >
+          <span className="section-tick" aria-hidden />
           {title}
         </h2>
         {label != null && label !== "" ? (

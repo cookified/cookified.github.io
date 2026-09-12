@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Intro from "@/components/Intro";
+import Marquee from "@/components/Marquee";
 import Projects from "@/components/Projects";
 import ContributionCalendar from "@/components/ContributionCalendar";
 import {
@@ -27,6 +28,7 @@ export default function Home() {
       <main>
         <Intro />
         <div className="section-divider mx-auto max-w-3xl px-6 sm:px-8" aria-hidden />
+        <Marquee />
         <Projects />
         <ContributionCalendar />
         <OpenSource />

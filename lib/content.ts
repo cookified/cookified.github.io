@@ -1,6 +1,5 @@
 export const identity = {
   name: "Mithun Chakladar",
-  role: "Backend & Full-Stack Developer · design-minded",
   location: "New Delhi · India",
   email: "mithunchakladar123@gmail.com",
   phone: "+91 8178958838",
@@ -11,7 +10,7 @@ export const identity = {
 };
 
 export const summary = [
-  "I build the quiet parts of software — the APIs, the security, the reliability that keep apps feeling solid — and I sweat the small details that make them nice to use. Final-year engineering student in New Delhi, working end-to-end in Python and JavaScript.",
+  "I build the quiet parts of software: the APIs, the security, the reliability that keep apps feeling solid. I sweat the small details that make them nice to use. Final-year engineering student in New Delhi.",
   "Four of my open-source pull requests are merged across ros-controls, Ember, and Duat. A year of freelance design work left me with a stubborn standard: output that is correct, and still looks cared for.",
 ];
 
@@ -148,7 +147,7 @@ export const achievements = [
 ];
 
 export const contactBlurb =
-  "If you're building something thoughtful, I'd love to hear about it — open to backend work, design-minded product craft, and good conversations about software that feels good to use.";
+  "If you're building something thoughtful, I'd love to hear about it: design-minded product craft, and good conversations about software that feels good to use.";
 
 export const navLinks = [
   { href: "#work", label: "Work" },

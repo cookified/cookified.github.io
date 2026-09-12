@@ -11,13 +11,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Mithun Chakladar — Backend & Full-Stack Developer",
+  title: "Mithun Chakladar",
   description:
-    "Design-minded backend & full-stack developer in New Delhi — builds quiet, reliable web apps that feel nice to use.",
+    "Design-minded builder in New Delhi. Quiet, reliable web apps that feel nice to use.",
   authors: [{ name: "Mithun Chakladar" }],
   openGraph: {
     title: "Mithun Chakladar",
-    description: "Backend & Full-Stack Developer — design-minded · New Delhi",
+    description: "Design-minded builder · New Delhi",
     type: "website",
   },
   icons: {
