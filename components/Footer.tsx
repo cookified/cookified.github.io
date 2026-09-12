@@ -7,7 +7,7 @@ export default function Footer() {
           © 2026 Mithun Chakladar
         </p>
         <p className="text-[10px] tracking-[0.08em] text-muted">
-          brewed with <span className="text-[rgba(154,79,70,1)]">Next.js</span>{" "}
+          brewed with <span className="text-[rgba(223,155,116,1)]">Next.js</span>{" "}
           · toasts by{" "}
           <a
             href="https://www.npmjs.com/package/@cookified/toastify"

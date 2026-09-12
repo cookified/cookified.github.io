@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --canvas: #ffffe8;
-  --surface: #f8f5e8;
-  --surface-deep: #f3eedc;
-  --ink: #1a1914;
-  --muted: #6b6758;
+  --canvas: #3b558f;
+  --surface: #405c99;
+  --surface-deep: #31477a;
+  --ink: #fdf9ec;
+  --muted: rgba(253, 249, 236, 0.6);
   --butter: #fff1b5;
   --butter-deep: #ead88f;
 
@@ -13,8 +13,6 @@
   --linen: #e5d2b7;
   --blush: #f6cfc7;
   --sky: #9ac3e2;
-
-  /* Strong light navy — deepened blue layer for gradients */
   --navy: #3b558f;
   --navy-soft: #6a7fb3;
 
@@ -27,8 +25,8 @@
 
   --sage: #7f8a72;
 
-  --hairline: rgba(26, 25, 20, 0.08);
-  --hairline-strong: rgba(26, 25, 20, 0.14);
+  --hairline: rgba(255, 253, 242, 0.14);
+  --hairline-strong: rgba(255, 253, 242, 0.26);
 }
 
 @theme inline {
@@ -69,7 +67,7 @@ body {
 
 ::selection {
   background: var(--butter);
-  color: var(--ink);
+  color: #1a1914;
 }
 
 a {
@@ -82,7 +80,7 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid rgba(59, 85, 143, 0.9);
+  outline: 2px solid rgba(255, 241, 181, 0.9);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -99,178 +97,26 @@ a:hover {
   font-weight: 500;
 }
 
-/* ---------- Minimal floating dock nav ---------- */
-.dock {
-  pointer-events: auto;
-  border-radius: 9999px;
-  border: 1px solid var(--hairline);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 253, 244, 0.85),
-    rgba(246, 243, 233, 0.8)
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    0 18px 40px -24px rgba(97, 77, 44, 0.45),
-    0 4px 12px -6px rgba(97, 77, 44, 0.18);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.dock-link {
-  border-radius: 9999px;
-  padding: 7px 16px;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  white-space: nowrap;
-  transition:
-    color 0.25s,
-    background-color 0.25s;
-}
-
-.dock-link:hover {
-  color: var(--ink);
-  background-color: rgba(255, 241, 181, 0.55);
-}
-
-/* ---------- Butter background — soft cream mesh with linen/blush/navy blooms ---------- */
+/* ---------- Navy background — solid blue with a faint white gradient ---------- */
 .page-mesh {
   background:
-    radial-gradient(1100px 560px at 88% -6%, rgba(59, 85, 143, 0.4), transparent 62%),
-    radial-gradient(820px 460px at -8% 14%, rgba(229, 210, 183, 0.4), transparent 58%),
-    radial-gradient(980px 620px at 50% 120%, rgba(246, 207, 199, 0.42), transparent 62%),
-    radial-gradient(600px 400px at 14% 78%, rgba(255, 241, 181, 0.4), transparent 62%),
-    linear-gradient(180deg, #fffdf2 0%, #ffffe8 40%, #faf6e7 100%);
+    radial-gradient(1000px 520px at 50% -10%, rgba(255, 253, 242, 0.12), transparent 60%),
+    linear-gradient(180deg, #44629c 0%, #3b558f 48%, #31477a 100%);
 }
 
 /* ---------- Film grain overlay ---------- */
 .page-grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  opacity: 0.035;
-  mix-blend-mode: multiply;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
 }
 
-/* ---------- Soft blurred bokeh — buttery light pooling behind content ---------- */
-.page-blobs {
-  overflow: hidden;
-}
-
-.pb-blob {
-  position: absolute;
-  display: block;
-  border-radius: 9999px;
-  filter: blur(90px);
-  will-change: transform;
-}
-
-.pb-blob-1 {
-  width: 560px;
-  height: 440px;
-  left: -160px;
-  top: -120px;
-  background: rgba(229, 210, 183, 0.85);
-}
-
-.pb-blob-2 {
-  width: 480px;
-  height: 420px;
-  right: -140px;
-  top: 14%;
-  background: rgba(59, 85, 143, 0.95);
-}
-
-.pb-blob-3 {
-  width: 560px;
-  height: 440px;
-  left: 22%;
-  bottom: -160px;
-  background: rgba(246, 207, 199, 0.85);
-}
-
-.pb-blob-4 {
-  width: 320px;
-  height: 320px;
-  right: 22%;
-  bottom: 28%;
-  background: rgba(255, 241, 181, 0.85);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .pb-blob-1 {
-    animation: blob-drift-1 32s ease-in-out infinite alternate;
-  }
-  .pb-blob-2 {
-    animation: blob-drift-2 40s ease-in-out infinite alternate;
-  }
-  .pb-blob-3 {
-    animation: blob-drift-3 36s ease-in-out infinite alternate;
-  }
-  .pb-blob-4 {
-    animation: blob-drift-4 28s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes blob-drift-1 {
-  to {
-    transform: translate(60px, 40px) scale(1.08);
-  }
-}
-
-@keyframes blob-drift-2 {
-  to {
-    transform: translate(-50px, 60px) scale(0.94);
-  }
-}
-
-@keyframes blob-drift-3 {
-  to {
-    transform: translate(-40px, -50px) scale(1.06);
-  }
-}
-
-@keyframes blob-drift-4 {
-  to {
-    transform: translate(50px, -40px) scale(1.1);
-  }
-}
-
-/* ---------- Hero wash — buttery sunrise sweep behind the intro ---------- */
+/* ---------- Hero wash — faint white light pooling behind the intro ---------- */
 .hero-wash {
   background:
-    radial-gradient(440px 260px at 90% 2%, rgba(59, 85, 143, 0.5), transparent 66%),
-    radial-gradient(480px 300px at 4% 100%, rgba(246, 207, 199, 0.48), transparent 66%),
-    radial-gradient(360px 220px at 55% -10%, rgba(255, 241, 181, 0.6), transparent 66%),
-    linear-gradient(180deg, rgba(255, 253, 242, 0) 0%, rgba(229, 210, 183, 0.34) 100%);
-}
-
-.hero-wash::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px 9999px 0 0;
-  background: linear-gradient(120deg, transparent 42%, rgba(59, 85, 143, 0.22) 62%, transparent 82%);
-}
-
-/* ---------- Strong navy halo pooling behind the intro name ---------- */
-.hero-halo {
-  width: 440px;
-  height: 300px;
-  background: radial-gradient(closest-side, rgba(59, 85, 143, 0.42), transparent 72%);
-  filter: blur(70px);
-}
-
-/* ---------- Gradient name accent ---------- */
-.gradient-name {
-  background: linear-gradient(115deg, #3b558f 0%, #6a7fb3 45%, #b06e33 105%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* ---------- Hand-drawn underline swoosh ---------- */
-.hero-swoosh {
-  filter: drop-shadow(0 2px 8px rgba(59, 85, 143, 0.25));
+    radial-gradient(560px 420px at 82% 0%, rgba(255, 253, 242, 0.13), transparent 64%),
+    radial-gradient(520px 400px at 6% 110%, rgba(10, 18, 46, 0.26), transparent 66%),
+    radial-gradient(420px 300px at 52% -12%, rgba(255, 253, 242, 0.08), transparent 62%);
 }
 
 /* ---------- Gradient hairline ---------- */
@@ -279,8 +125,8 @@ a:hover {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(178, 158, 122, 0.55) 16%,
-    rgba(59, 85, 143, 0.55) 84%,
+    rgba(255, 253, 242, 0.32) 16%,
+    rgba(255, 253, 242, 0.1) 84%,
     transparent 100%
   );
 }
@@ -291,24 +137,59 @@ a:hover {
   width: 26px;
   height: 3px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, rgba(59, 85, 143, 0.85), rgba(217, 164, 74, 0.85));
-  box-shadow: 0 0 14px rgba(59, 85, 143, 0.4);
+  background: linear-gradient(90deg, rgba(255, 253, 242, 0.95), rgba(255, 241, 181, 0.9));
+  box-shadow: 0 0 16px rgba(255, 241, 181, 0.38);
 }
 
-/* ---------- Buttery cards — gradient hairlines over cream, soft lift ---------- */
+/* ---------- Minimal floating dock nav — frosted glass on navy ---------- */
+.dock {
+  pointer-events: auto;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 253, 242, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(51, 71, 116, 0.88),
+    rgba(43, 60, 100, 0.82)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 253, 242, 0.16),
+    0 20px 44px -26px rgba(8, 14, 38, 0.85),
+    0 4px 12px -6px rgba(8, 14, 38, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.dock-link {
+  border-radius: 9999px;
+  padding: 7px 16px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(253, 249, 236, 0.72);
+  white-space: nowrap;
+  transition:
+    color 0.25s,
+    background-color 0.25s;
+}
+
+.dock-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 253, 242, 0.12);
+}
+
+/* ---------- Frosted cards — soft white glass over navy ---------- */
 .card-butter {
   position: relative;
   border-radius: 18px;
   background: linear-gradient(
     135deg,
-    rgba(229, 210, 183, 0.8),
-    rgba(246, 207, 199, 0.5) 38%,
-    rgba(59, 85, 143, 0.5) 72%,
-    rgba(229, 210, 183, 0.75)
+    rgba(255, 253, 242, 0.14),
+    rgba(255, 253, 242, 0.06) 55%,
+    rgba(4, 10, 32, 0.22)
   );
+  border: 1px solid rgba(255, 253, 242, 0.14);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 22px 48px -30px rgba(122, 92, 58, 0.5);
+    inset 0 1px 0 rgba(255, 253, 242, 0.16),
+    0 26px 54px -32px rgba(6, 12, 36, 0.75);
   transition:
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -317,30 +198,30 @@ a:hover {
 .card-butter:hover {
   transform: translateY(-3px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 32px 64px -32px rgba(122, 92, 58, 0.55);
+    inset 0 1px 0 rgba(255, 253, 242, 0.18),
+    0 36px 70px -34px rgba(6, 12, 36, 0.85);
 }
 
 .card-butter-inner {
   position: relative;
   height: 100%;
   border-radius: 17px;
-  background:
-    radial-gradient(420px 200px at 90% -8%, rgba(59, 85, 143, 0.44), transparent 62%),
-    radial-gradient(360px 180px at 4% 108%, rgba(246, 207, 199, 0.38), transparent 60%),
-    linear-gradient(180deg, rgba(255, 253, 244, 0.97), rgba(246, 241, 224, 0.95));
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 242, 0.08),
+    rgba(255, 253, 242, 0.02)
+  );
+  border: 1px solid rgba(255, 253, 242, 0.12);
 }
 
 /* ---------- Skill chips ---------- */
 .skill-chip {
   border-radius: 15px;
   padding: 14px 16px;
-  border: 1px solid var(--hairline);
+  border: 1px solid rgba(255, 253, 242, 0.14);
   background:
-    radial-gradient(320px 140px at 92% -10%, rgba(59, 85, 143, 0.42), transparent 60%),
-    radial-gradient(260px 120px at 0% 110%, rgba(246, 207, 199, 0.34), transparent 60%),
-    linear-gradient(180deg, rgba(255, 253, 244, 0.92), rgba(243, 238, 220, 0.8));
+    radial-gradient(320px 140px at 92% -10%, rgba(255, 253, 242, 0.16), transparent 60%),
+    linear-gradient(180deg, rgba(255, 253, 242, 0.1), rgba(255, 253, 242, 0.03));
   transition:
     border-color 0.3s,
     transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -348,8 +229,8 @@ a:hover {
 }
 
 .skill-chip:hover {
-  border-color: rgba(59, 85, 143, 0.7);
-  box-shadow: 0 16px 34px -22px rgba(97, 77, 44, 0.55);
+  border-color: rgba(255, 241, 181, 0.55);
+  box-shadow: 0 18px 38px -24px rgba(6, 12, 36, 0.7);
   transform: translateY(-2px);
 }
 
@@ -360,15 +241,15 @@ a:hover {
   gap: 7px;
   padding: 4px 10px 4px 4px;
   border-radius: 11px;
-  border: 1px solid var(--hairline);
-  background: linear-gradient(180deg, rgba(255, 253, 245, 0.92), rgba(246, 243, 233, 0.82));
+  border: 1px solid rgba(255, 253, 242, 0.14);
+  background: linear-gradient(180deg, rgba(255, 253, 242, 0.12), rgba(255, 253, 242, 0.05));
   transition:
     border-color 0.25s,
     transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .skill-item:hover {
-  border-color: rgba(59, 85, 143, 0.7);
+  border-color: rgba(255, 241, 181, 0.5);
   transform: translateY(-1px);
 }
 
@@ -379,11 +260,11 @@ a:hover {
   width: 26px;
   height: 26px;
   border-radius: 8px;
-  border: 1px solid rgba(26, 25, 20, 0.06);
-  background: linear-gradient(180deg, #ffffff, #f3eedc);
+  border: 1px solid rgba(255, 253, 242, 0.2);
+  background: linear-gradient(180deg, #5a74b4, #3e5692);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 5px 12px -7px rgba(97, 77, 44, 0.5);
+    inset 0 1px 0 rgba(255, 253, 242, 0.35),
+    0 5px 12px -7px rgba(6, 12, 36, 0.7);
 }
 
 .skill-app svg {
@@ -394,11 +275,11 @@ a:hover {
 /* ---------- Contact wash panel ---------- */
 .contact-wash {
   border-radius: 20px;
-  border: 1px solid var(--hairline);
+  border: 1px solid rgba(255, 253, 242, 0.14);
   background:
-    radial-gradient(380px 200px at 94% 4%, rgba(59, 85, 143, 0.48), transparent 62%),
-    radial-gradient(440px 260px at -4% 110%, rgba(246, 207, 199, 0.48), transparent 62%),
-    linear-gradient(135deg, rgba(255, 253, 244, 0.96), rgba(246, 207, 199, 0.34) 55%, rgba(229, 210, 183, 0.4));
+    radial-gradient(380px 200px at 94% 4%, rgba(255, 253, 242, 0.16), transparent 62%),
+    radial-gradient(440px 260px at -4% 110%, rgba(106, 139, 210, 0.28), transparent 62%),
+    linear-gradient(135deg, rgba(255, 253, 242, 0.12), rgba(255, 253, 242, 0.05) 55%, rgba(4, 10, 32, 0.2));
 }
 
 /* ---------- Small chips / tags ---------- */
@@ -406,8 +287,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--hairline);
-  background: linear-gradient(180deg, rgba(255, 253, 245, 0.9), rgba(248, 245, 232, 0.75));
+  border: 1px solid rgba(255, 253, 242, 0.14);
+  background: linear-gradient(180deg, rgba(255, 253, 242, 0.12), rgba(255, 253, 242, 0.05));
   color: var(--muted);
   transition:
     border-color 0.2s,
@@ -415,7 +296,7 @@ a:hover {
 }
 
 .chip:hover {
-  border-color: rgba(59, 85, 143, 0.7);
+  border-color: rgba(255, 241, 181, 0.55);
   color: var(--ink);
 }
 
@@ -427,8 +308,8 @@ a:hover {
   --toastify-desc-color: #6b6758;
   --toastify-border: rgba(26, 25, 20, 0.09);
   --toastify-shadow:
-    0 22px 50px -24px rgba(97, 77, 44, 0.55),
-    0 6px 18px -10px rgba(97, 77, 44, 0.28);
+    0 22px 50px -24px rgba(8, 14, 38, 0.65),
+    0 6px 18px -10px rgba(8, 14, 38, 0.4);
   --toastify-badge-bg: var(--plum);
   --toastify-badge-color: #fff1b5;
   --toastify-btn-cancel-color: #6b6758;
@@ -458,7 +339,7 @@ a:hover {
   border-radius: 9999px;
   border: 1px solid rgba(229, 210, 183, 0.45);
   background:
-    radial-gradient(240px 120px at 100% -30%, rgba(59, 85, 143, 0.3), transparent 62%),
+    radial-gradient(240px 120px at 100% -30%, rgba(59, 85, 143, 0.24), transparent 62%),
     linear-gradient(180deg, rgba(255, 253, 244, 0.96), rgba(249, 245, 232, 0.95));
 }
 
@@ -510,57 +391,8 @@ a:hover {
 
 .contrib-panel {
   border-radius: 20px;
-  border: 1px solid var(--hairline);
+  border: 1px solid rgba(255, 253, 242, 0.14);
   background:
-    radial-gradient(420px 200px at 88% -10%, rgba(59, 85, 143, 0.44), transparent 62%),
-    linear-gradient(180deg, rgba(255, 253, 244, 0.88), rgba(246, 241, 224, 0.82));
-}
-
-/* ---------- Keyword marquee ticker ---------- */
-.marquee-mask {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-}
-
-.marquee-track {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.marquee-group {
-  display: inline-flex;
-  align-items: center;
-}
-
-.marquee-word {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.marquee-spark {
-  display: inline-flex;
-  width: 7px;
-  height: 7px;
-  margin: 0 26px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(59, 85, 143, 0.9), rgba(217, 164, 74, 0.9));
-  transform: rotate(45deg);
-  box-shadow: 0 0 10px rgba(59, 85, 143, 0.35);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .marquee-track {
-    animation: marquee-scroll 40s linear infinite;
-  }
-}
-
-@keyframes marquee-scroll {
-  to {
-    transform: translateX(-50%);
-  }
+    radial-gradient(420px 200px at 88% -10%, rgba(255, 253, 242, 0.12), transparent 62%),
+    linear-gradient(180deg, rgba(255, 253, 242, 0.1), rgba(255, 253, 242, 0.04));
 }
