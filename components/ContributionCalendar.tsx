@@ -34,15 +34,23 @@ export default function ContributionCalendar() {
         if (cancelled) return;
 
         const contributions = json.contributions ?? [];
-        setData(contributions);
 
         const yearTotals = json.total ?? {};
         const years = Object.keys(yearTotals)
           .map(Number)
           .filter((y) => !Number.isNaN(y))
           .sort((a, b) => b - a);
+
         if (years.length > 0) {
-          setTotal(yearTotals[String(years[0])] ?? null);
+          const currentYear = years[0];
+          setTotal(yearTotals[String(currentYear)] ?? null);
+          setData(
+            contributions.filter(
+              (day) => new Date(day.date).getFullYear() === currentYear,
+            ),
+          );
+        } else {
+          setData(contributions);
         }
       } catch {
         if (!cancelled) setError(true);

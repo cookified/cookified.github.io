@@ -1,6 +1,6 @@
 export const identity = {
   name: "Mithun Chakladar",
-  role: "Backend & Full-Stack Developer",
+  role: "Backend & Full-Stack Developer · design-minded",
   location: "New Delhi · India",
   email: "mithunchakladar123@gmail.com",
   phone: "+91 8178958838",
@@ -11,8 +11,8 @@ export const identity = {
 };
 
 export const summary = [
-  "Final-year B.Tech CSE student (MDU–SAITM, 2023–2027) building web apps end-to-end in Python and JavaScript. Focused on backend design, security, and reliability — with a quiet care for how things feel.",
-  "Four merged open-source PRs across ros-controls, Ember, and Duat. One year of freelance design work taught me that output should be correct and presented cleanly.",
+  "I build the quiet parts of software — the APIs, the security, the reliability that keep apps feeling solid — and I sweat the small details that make them nice to use. Final-year engineering student in New Delhi, working end-to-end in Python and JavaScript.",
+  "Four of my open-source pull requests are merged across ros-controls, Ember, and Duat. A year of freelance design work left me with a stubborn standard: output that is correct, and still looks cared for.",
 ];
 
 export const projects = [
@@ -78,7 +78,7 @@ export const experience = {
   org: "Extraction Esports",
   alias: "@lichiofheaven",
   detail:
-    "Designed brand identities, posters, and tournament graphics. Thumbnails optimized for CTR under the alias",
+    "Designed brand identities, posters, and tournament graphics for esports — thumbnails tuned for clicks without losing the taste. Shipped under the alias",
 };
 
 export const education = {
@@ -86,8 +86,6 @@ export const education = {
   degree: "B.Tech Computer Science & Engineering",
   school: "MDU – SAITM",
   place: "New Delhi",
-  coursework:
-    "Coursework · DSA · DBMS · Compiler Design · Discrete Mathematics · Probability & Statistics",
 };
 
 export const skills = [
@@ -150,7 +148,7 @@ export const achievements = [
 ];
 
 export const contactBlurb =
-  "Open to thoughtful collaborations, backend work, and quiet product craft. Reach out anytime.";
+  "If you're building something thoughtful, I'd love to hear about it — open to backend work, design-minded product craft, and good conversations about software that feels good to use.";
 
 export const navLinks = [
   { href: "#work", label: "Work" },

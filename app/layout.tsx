@@ -13,16 +13,20 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Mithun Chakladar — Backend & Full-Stack Developer",
   description:
-    "Backend & full-stack developer in New Delhi. Builds thoughtful web apps with a focus on backend design, security, and reliability.",
+    "Design-minded backend & full-stack developer in New Delhi — builds quiet, reliable web apps that feel nice to use.",
   authors: [{ name: "Mithun Chakladar" }],
   openGraph: {
     title: "Mithun Chakladar",
-    description: "Backend & Full-Stack Developer · New Delhi",
+    description: "Backend & Full-Stack Developer — design-minded · New Delhi",
     type: "website",
   },
   icons: {
-    icon: "/mithun.svg",
-    shortcut: "/mithun.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    other: [{ rel: "icon", url: "/icon-192.png", sizes: "192x192" }],
   },
 };
 

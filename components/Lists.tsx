@@ -76,9 +76,6 @@ export function Education() {
           </span>
         </div>
         <p className="mt-1.5 text-[12px] text-muted">{education.school}</p>
-        <p className="mt-3 text-[11px] leading-relaxed text-muted">
-          {education.coursework}
-        </p>
       </div>
     </Section>
   );
