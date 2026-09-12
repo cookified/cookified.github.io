@@ -63,7 +63,7 @@ export default function ContributionCalendar() {
       <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
         <h2
           id="contrib-heading"
-          className="font-serif text-[16px] tracking-tight text-ink"
+          className="text-[17px] font-semibold tracking-tight text-ink"
         >
           GitHub
         </h2>

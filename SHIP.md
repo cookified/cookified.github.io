@@ -6,8 +6,8 @@ Next.js 15 App Router · React 19 · TypeScript · Tailwind CSS v4 · static exp
 ## Design notes
 
 - Palette: warm cream canvas (`#FFFFE8`), soft surface (`#F8F5E8` / `#F3EEDC`), warm charcoal ink (`#1A1914`), sage-olive muted (`#6B6758`), butter accent (`#FFF1B5`) used sparingly.
-- Typography is intentionally small: body ~12–13px, labels ~10–11px, section titles ≤18px. Instrument Serif for name/titles; DM Sans for body.
-- Feel: quiet luxury / restrained — hairline borders, generous whitespace, no neon, no glass, no loud cards.
+- Typography is minimal and set entirely in DM Sans (300–700) — name/titles/body alike. Small sizes: body ~12–13px, labels ~10–11px, section titles ≤17px.
+- Feel: quiet, modern, minimal — gradient mesh background with hairline borders, generous whitespace, no serif, no icons/logos, no glass-heavy cards.
 - Content is resume-accurate: two projects only (Toastify, Konfide), plus Open Source, Experience, Education, Craft, Notes, Contact.
 
 ## Build
@@ -45,10 +45,17 @@ Example minimal workflow idea: checkout → `npm ci` → `npm run build` → upl
 | `app/layout.tsx` | Fonts, metadata |
 | `app/globals.css` | Cream theme tokens + Tailwind v4 |
 | `next.config.ts` | Static export / Pages settings |
-| `components/Nav.tsx` | Brand flame + minimal text nav |
-| `components/Intro.tsx` | Gradient hero intro with avatar glow |
+| `components/Nav.tsx` | Minimal floating pill dock, text links only |
+| `components/Intro.tsx` | Clean-sans intro over a sunrise gradient wash |
 | `components/Projects.tsx` | Toastify + Konfide only, live Toastify demo |
 | `components/ContributionCalendar.tsx` | GitHub activity map (client) |
 | `components/Lists.tsx` | OpenSource, Experience, Education, Skills, Achievements |
-| `components/Contact.tsx` | Email (copy toast), GitHub, LinkedIn, phone |
+| `components/Contact.tsx` | Email, GitHub, LinkedIn, phone |
 | `components/Footer.tsx` | Gradient divider + © 2026 |
+
+## Toastify
+
+- Mounted once in `app/layout.tsx` (`ToasterHost`), `animation="fade"`, themed
+  as big cream pills.
+- Toasts only fire from the Projects section (`ToastDemo` on the Toastify card)
+  — no global welcome toast, no header ping, no copy-to-clipboard toast.

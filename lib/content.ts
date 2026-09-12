@@ -2,7 +2,6 @@ export const identity = {
   name: "Mithun Chakladar",
   role: "Backend & Full-Stack Developer",
   location: "New Delhi · India",
-  avatar: "/mithun.svg",
   email: "mithunchakladar123@gmail.com",
   phone: "+91 8178958838",
   phoneHref: "tel:+918178958838",

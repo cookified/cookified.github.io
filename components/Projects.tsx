@@ -10,7 +10,7 @@ export default function Projects() {
           <li key={project.name} className="card-butter group">
             <div className="card-butter-inner p-5 sm:p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-serif text-[15px] tracking-tight text-ink">
+                <h3 className="text-[16px] font-semibold tracking-tight text-ink">
                   {project.name}
                 </h3>
                 <p className="text-[10px] tracking-[0.06em] text-muted">

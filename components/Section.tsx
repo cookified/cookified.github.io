@@ -30,7 +30,7 @@ export default function Section({
       <div className="mb-7 flex items-baseline justify-between gap-4">
         <h2
           id={hid}
-          className="font-serif text-[16px] tracking-tight text-ink"
+          className="text-[17px] font-semibold tracking-tight text-ink"
         >
           {title}
         </h2>

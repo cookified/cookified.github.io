@@ -18,7 +18,7 @@ export function OpenSource() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-serif text-[14px] tracking-tight text-ink transition-opacity hover:opacity-70"
+                className="text-[14.5px] font-medium tracking-tight text-ink transition-opacity hover:opacity-70"
               >
                 {item.project}
               </a>
@@ -45,7 +45,7 @@ export function Experience() {
       <article className="card-butter">
         <div className="card-butter-inner p-5 sm:p-6">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="font-serif text-[14px] tracking-tight text-ink">
+<h3 className="text-[14.5px] font-medium tracking-tight text-ink">
               {experience.role}
             </h3>
             <span className="text-[10px] tracking-[0.06em] text-muted">
@@ -67,7 +67,7 @@ export function Education() {
     <Section id="about" title="Education" label={education.label}>
       <div className="border-y border-[var(--hairline)] py-5">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 className="font-serif text-[14px] tracking-tight text-ink">
+          <h3 className="text-[14.5px] font-medium tracking-tight text-ink">
             {education.degree}
           </h3>
           <span className="text-[10px] tracking-[0.06em] text-muted">

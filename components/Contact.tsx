@@ -1,25 +1,7 @@
-"use client";
-
-import { toast } from "@cookified/toastify";
 import Section from "@/components/Section";
 import { contactBlurb, identity } from "@/lib/content";
 
 export default function Contact() {
-  async function copyEmail() {
-    try {
-      await navigator.clipboard.writeText(identity.email);
-      toast.success("Copied to clipboard.", {
-        description: identity.email,
-        duration: 2600,
-      });
-    } catch {
-      toast.warning("Couldn't copy automatically.", {
-        description: "Feel free to jot it down — no judgement.",
-        duration: 3200,
-      });
-    }
-  }
-
   return (
     <Section
       id="contact"
@@ -34,14 +16,12 @@ export default function Contact() {
 
         <ul className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
           <li>
-            <button
-              type="button"
-              onClick={copyEmail}
+            <a
+              href={`mailto:${identity.email}`}
               className="chip px-2.5 py-1 text-[12px]"
-              aria-label="Copy email address"
             >
-              {identity.email} ↗
-            </button>
+              {identity.email}
+            </a>
           </li>
           <li>
             <a

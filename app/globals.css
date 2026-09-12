@@ -41,7 +41,6 @@
   --color-terra: var(--terra);
   --color-ember: var(--ember);
   --font-sans: var(--font-dm-sans);
-  --font-serif: var(--font-instrument);
 }
 
 * {
@@ -83,10 +82,6 @@ a:hover {
   border-radius: 4px;
 }
 
-.font-serif {
-  font-family: var(--font-instrument), Georgia, "Times New Roman", serif;
-}
-
 .hairline {
   border: 1px solid var(--hairline);
 }
@@ -97,6 +92,41 @@ a:hover {
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 500;
+}
+
+/* ---------- Minimal floating dock nav ---------- */
+.dock {
+  pointer-events: auto;
+  border-radius: 9999px;
+  border: 1px solid var(--hairline);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 244, 0.85),
+    rgba(246, 243, 233, 0.8)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 18px 40px -24px rgba(97, 77, 44, 0.45),
+    0 4px 12px -6px rgba(97, 77, 44, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.dock-link {
+  border-radius: 9999px;
+  padding: 7px 16px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  white-space: nowrap;
+  transition:
+    color 0.25s,
+    background-color 0.25s;
+}
+
+.dock-link:hover {
+  color: var(--ink);
+  background-color: rgba(255, 241, 181, 0.55);
 }
 
 /* ---------- Butter background — soft cream mesh with linen/blush/sky blooms ---------- */
@@ -142,37 +172,6 @@ a:hover {
     rgba(154, 195, 226, 0.3) 84%,
     transparent 100%
   );
-}
-
-/* ---------- Avatar glow — plum badge halo from the pfp palette ---------- */
-.avatar-glow {
-  position: relative;
-}
-
-.avatar-glow::before {
-  content: "";
-  position: absolute;
-  inset: -7px;
-  z-index: -1;
-  border-radius: 22px;
-  background: conic-gradient(
-    from 210deg,
-    rgba(154, 195, 226, 0.6),
-    rgba(246, 207, 199, 0.55),
-    rgba(230, 184, 150, 0.7),
-    rgba(230, 214, 255, 0.4),
-    rgba(154, 195, 226, 0.6)
-  );
-  filter: blur(11px);
-  opacity: 0.8;
-}
-
-.avatar-glow img {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.avatar-glow:hover img {
-  transform: translateY(-2px) rotate(-2deg);
 }
 
 /* ---------- Buttery cards — gradient hairlines over cream, soft lift ---------- */
@@ -260,36 +259,7 @@ a:hover {
   color: var(--ink);
 }
 
-/* ---------- Gradient text accent ---------- */
-.gradient-text {
-  background: linear-gradient(118deg, #9a4f46 0%, #df9b74 40%, #2e304e 92%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* ---------- Gradient pill buttons ---------- */
-.btn-butter {
-  border-radius: 9999px;
-  border: 1px solid rgba(229, 210, 183, 0.55);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 241, 181, 0.6),
-    rgba(248, 245, 232, 0.9)
-  );
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transition:
-    border-color 0.25s,
-    color 0.25s,
-    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-butter:hover {
-  border-color: rgba(154, 195, 226, 0.6);
-  transform: translateY(-1px);
-}
-
-/* ---------- Toastify — buttery cream theme ---------- */
+/* ---------- Toastify — big cream pill toasts ---------- */
 :root {
   --toastify-bg: #fdfaf0;
   --toastify-color: #1a1914;
@@ -314,33 +284,52 @@ a:hover {
 
 .portfolio-toaster {
   --toastify-offset: 22px;
+  --toastify-z-index: 9999;
+}
+
+.portfolio-toaster .toastify-item {
+  height: 60px;
 }
 
 .portfolio-toaster .toastify-toast {
   position: relative;
-  border-radius: 15px;
-  border: 1px solid rgba(229, 210, 183, 0.4);
+  height: 60px;
+  padding: 0 20px 0 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(229, 210, 183, 0.45);
   background:
-    radial-gradient(220px 120px at 100% -20%, rgba(154, 195, 226, 0.22), transparent 62%),
-    linear-gradient(180deg, rgba(255, 253, 244, 0.95), rgba(249, 245, 232, 0.94));
+    radial-gradient(240px 120px at 100% -30%, rgba(154, 195, 226, 0.24), transparent 62%),
+    linear-gradient(180deg, rgba(255, 253, 244, 0.96), rgba(249, 245, 232, 0.95));
 }
 
 .portfolio-toaster .toastify-toast::before {
   content: "";
   position: absolute;
-  inset: 2px 14px auto;
+  inset: 2px 30px auto;
   height: 1px;
   border-radius: 9999px;
   background: linear-gradient(90deg, transparent, rgba(255, 241, 181, 0.95), transparent);
 }
 
+.portfolio-toaster .toastify-content {
+  gap: 14px;
+}
+
 .portfolio-toaster .toastify-badge {
+  height: 22px;
+  width: 22px;
+  border-radius: 9999px;
   background: linear-gradient(135deg, var(--ember), var(--terra));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .portfolio-toaster .toastify-title {
+  font-size: 13.5px;
   font-weight: 600;
+}
+
+.portfolio-toaster .toastify-description {
+  font-size: 12.5px;
 }
 
 /* ---------- Contribution calendar soft overrides ---------- */
