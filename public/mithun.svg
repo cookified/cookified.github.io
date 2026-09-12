@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Warm flame doodle mark">
+  <defs>
+    <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#201a38"/>
+      <stop offset="1" stop-color="#2e304e"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#9a4f46"/>
+      <stop offset="0.55" stop-color="#df9b74"/>
+      <stop offset="1" stop-color="#e6b896"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#e6b896" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e6b896" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#badge)"/>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#glow)"/>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="none" stroke="rgba(230,184,150,0.30)" stroke-width="2"/>
+
+  <g fill="#df9b74" opacity="0.55">
+    <circle cx="34" cy="37" r="4"/>
+    <circle cx="96" cy="33" r="2.5"/>
+    <circle cx="25" cy="88" r="2"/>
+    <circle cx="101" cy="97" r="3"/>
+  </g>
+
+  <path d="M64 26c3 14-6 19.5-12 27.5C47 60 44 68 44 76c0 11 9 20 20 20s20-9 20-20c0-8-3-16-8-22.5-6-8-15-13.5-12-27.5z" fill="url(#flame)"/>
+  <path d="M63.5 68.5c-3.2 4.7-4.8 8.2-4.8 11.3 0 4.2 2.7 7.2 6 7.2s6-3 6-7.2c0-3.1-1.6-6.6-4.8-11.3z" fill="#fff1b5" opacity="0.92"/>
+</svg>

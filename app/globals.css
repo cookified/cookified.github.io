@@ -1,0 +1,368 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #ffffe8;
+  --surface: #f8f5e8;
+  --surface-deep: #f3eedc;
+  --ink: #1a1914;
+  --muted: #6b6758;
+  --butter: #fff1b5;
+  --butter-deep: #ead88f;
+
+  /* Twitter header — linen, blush, sky */
+  --linen: #e5d2b7;
+  --blush: #f6cfc7;
+  --sky: #9ac3e2;
+
+  /* Twitter pfp — plum, terracotta, ember */
+  --plum: #2e304e;
+  --plum-deep: #19111e;
+  --terra: #9a4f46;
+  --ember: #df9b74;
+  --peach: #e6b896;
+
+  --sage: #7f8a72;
+
+  --hairline: rgba(26, 25, 20, 0.08);
+  --hairline-strong: rgba(26, 25, 20, 0.14);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-deep: var(--surface-deep);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-butter: var(--butter);
+  --color-linen: var(--linen);
+  --color-blush: var(--blush);
+  --color-sky: var(--sky);
+  --color-plum: var(--plum);
+  --color-terra: var(--terra);
+  --color-ember: var(--ember);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-instrument);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--butter);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid rgba(154, 195, 226, 0.85);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.font-serif {
+  font-family: var(--font-instrument), Georgia, "Times New Roman", serif;
+}
+
+.hairline {
+  border: 1px solid var(--hairline);
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ---------- Butter background — soft cream mesh with linen/blush/sky blooms ---------- */
+.page-mesh {
+  background:
+    radial-gradient(1100px 560px at 88% -6%, rgba(154, 195, 226, 0.16), transparent 62%),
+    radial-gradient(820px 460px at -8% 14%, rgba(229, 210, 183, 0.22), transparent 58%),
+    radial-gradient(980px 620px at 50% 120%, rgba(246, 207, 199, 0.24), transparent 62%),
+    linear-gradient(180deg, #fffdf2 0%, #ffffe8 40%, #faf6e7 100%);
+}
+
+/* ---------- Film grain overlay ---------- */
+.page-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Hero wash — buttery sunrise sweep behind the intro ---------- */
+.hero-wash {
+  background:
+    radial-gradient(420px 240px at 90% 2%, rgba(154, 195, 226, 0.22), transparent 66%),
+    radial-gradient(480px 280px at 6% 100%, rgba(246, 207, 199, 0.30), transparent 66%),
+    radial-gradient(340px 200px at 55% -10%, rgba(255, 241, 181, 0.4), transparent 66%),
+    linear-gradient(180deg, rgba(255, 253, 242, 0) 0%, rgba(229, 210, 183, 0.22) 100%);
+}
+
+.hero-wash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px 9999px 0 0;
+  background: linear-gradient(120deg, transparent 42%, rgba(154, 195, 226, 0.14) 62%, transparent 82%);
+}
+
+/* ---------- Gradient hairline ---------- */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(178, 158, 122, 0.4) 16%,
+    rgba(154, 195, 226, 0.3) 84%,
+    transparent 100%
+  );
+}
+
+/* ---------- Avatar glow — plum badge halo from the pfp palette ---------- */
+.avatar-glow {
+  position: relative;
+}
+
+.avatar-glow::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  z-index: -1;
+  border-radius: 22px;
+  background: conic-gradient(
+    from 210deg,
+    rgba(154, 195, 226, 0.6),
+    rgba(246, 207, 199, 0.55),
+    rgba(230, 184, 150, 0.7),
+    rgba(230, 214, 255, 0.4),
+    rgba(154, 195, 226, 0.6)
+  );
+  filter: blur(11px);
+  opacity: 0.8;
+}
+
+.avatar-glow img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avatar-glow:hover img {
+  transform: translateY(-2px) rotate(-2deg);
+}
+
+/* ---------- Buttery cards — gradient hairlines over cream, soft lift ---------- */
+.card-butter {
+  position: relative;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(229, 210, 183, 0.55),
+    rgba(246, 207, 199, 0.34) 38%,
+    rgba(154, 195, 226, 0.3) 72%,
+    rgba(229, 210, 183, 0.5)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 20px 44px -30px rgba(122, 92, 58, 0.45);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-butter:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 30px 60px -32px rgba(122, 92, 58, 0.5);
+}
+
+.card-butter-inner {
+  position: relative;
+  height: 100%;
+  border-radius: 17px;
+  background:
+    radial-gradient(420px 200px at 90% -8%, rgba(154, 195, 226, 0.16), transparent 62%),
+    radial-gradient(360px 180px at 4% 108%, rgba(246, 207, 199, 0.2), transparent 60%),
+    linear-gradient(180deg, rgba(255, 253, 244, 0.96), rgba(248, 245, 232, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+/* ---------- Skill chips ---------- */
+.skill-chip {
+  border-radius: 15px;
+  padding: 14px 16px;
+  border: 1px solid var(--hairline);
+  background:
+    radial-gradient(260px 120px at 92% -10%, rgba(154, 195, 226, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(255, 253, 244, 0.8), rgba(243, 238, 220, 0.65));
+  transition:
+    border-color 0.3s,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s;
+}
+
+.skill-chip:hover {
+  border-color: rgba(154, 195, 226, 0.55);
+  box-shadow: 0 14px 30px -22px rgba(97, 77, 44, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ---------- Contact wash panel ---------- */
+.contact-wash {
+  border-radius: 20px;
+  border: 1px solid var(--hairline);
+  background:
+    radial-gradient(360px 180px at 94% 6%, rgba(154, 195, 226, 0.24), transparent 62%),
+    radial-gradient(420px 240px at -4% 110%, rgba(246, 207, 199, 0.34), transparent 62%),
+    linear-gradient(135deg, rgba(255, 253, 244, 0.95), rgba(246, 207, 199, 0.22) 55%, rgba(229, 210, 183, 0.26));
+}
+
+/* ---------- Small chips / tags ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, rgba(255, 253, 245, 0.9), rgba(248, 245, 232, 0.75));
+  color: var(--muted);
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.chip:hover {
+  border-color: rgba(154, 195, 226, 0.55);
+  color: var(--ink);
+}
+
+/* ---------- Gradient text accent ---------- */
+.gradient-text {
+  background: linear-gradient(118deg, #9a4f46 0%, #df9b74 40%, #2e304e 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Gradient pill buttons ---------- */
+.btn-butter {
+  border-radius: 9999px;
+  border: 1px solid rgba(229, 210, 183, 0.55);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 241, 181, 0.6),
+    rgba(248, 245, 232, 0.9)
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition:
+    border-color 0.25s,
+    color 0.25s,
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-butter:hover {
+  border-color: rgba(154, 195, 226, 0.6);
+  transform: translateY(-1px);
+}
+
+/* ---------- Toastify — buttery cream theme ---------- */
+:root {
+  --toastify-bg: #fdfaf0;
+  --toastify-color: #1a1914;
+  --toastify-title-color: #1a1914;
+  --toastify-desc-color: #6b6758;
+  --toastify-border: rgba(26, 25, 20, 0.09);
+  --toastify-shadow:
+    0 22px 50px -24px rgba(97, 77, 44, 0.55),
+    0 6px 18px -10px rgba(97, 77, 44, 0.28);
+  --toastify-badge-bg: var(--plum);
+  --toastify-badge-color: #fff1b5;
+  --toastify-btn-cancel-color: #6b6758;
+  --toastify-btn-cancel-hover-bg: rgba(243, 238, 220, 0.95);
+  --toastify-btn-cancel-hover-color: #1a1914;
+  --toastify-btn-action-bg: var(--plum);
+  --toastify-btn-action-color: #fff1b5;
+  --toastify-btn-action-hover-bg: #3d4066;
+  --toastify-btn-close-color: #a29b8a;
+  --toastify-btn-close-hover-color: #1a1914;
+  --toastify-z-index: 9999;
+}
+
+.portfolio-toaster {
+  --toastify-offset: 22px;
+}
+
+.portfolio-toaster .toastify-toast {
+  position: relative;
+  border-radius: 15px;
+  border: 1px solid rgba(229, 210, 183, 0.4);
+  background:
+    radial-gradient(220px 120px at 100% -20%, rgba(154, 195, 226, 0.22), transparent 62%),
+    linear-gradient(180deg, rgba(255, 253, 244, 0.95), rgba(249, 245, 232, 0.94));
+}
+
+.portfolio-toaster .toastify-toast::before {
+  content: "";
+  position: absolute;
+  inset: 2px 14px auto;
+  height: 1px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 241, 181, 0.95), transparent);
+}
+
+.portfolio-toaster .toastify-badge {
+  background: linear-gradient(135deg, var(--ember), var(--terra));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.portfolio-toaster .toastify-title {
+  font-weight: 600;
+}
+
+/* ---------- Contribution calendar soft overrides ---------- */
+.contrib-calendar {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.contrib-calendar svg {
+  font-family: var(--font-dm-sans), system-ui, sans-serif !important;
+}
+
+.contrib-calendar text {
+  fill: var(--muted) !important;
+  font-size: 10px !important;
+}
+
+.contrib-panel {
+  border-radius: 20px;
+  border: 1px solid var(--hairline);
+  background:
+    radial-gradient(420px 200px at 88% -10%, rgba(154, 195, 226, 0.16), transparent 62%),
+    linear-gradient(180deg, rgba(255, 253, 244, 0.84), rgba(248, 245, 232, 0.78));
+}
