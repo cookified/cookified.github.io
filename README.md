@@ -1,6 +1,6 @@
 # Mithun Chakladar — Portfolio
 
-Personal portfolio site. Soft cream aesthetic, small type, static export for GitHub Pages.
+Personal portfolio. Dark terminal-editorial aesthetic, spring motion, static export for GitHub Pages.
 
 ```bash
 npm install

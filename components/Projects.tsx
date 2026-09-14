@@ -1,56 +1,63 @@
-import Section from "@/components/Section";
-import ToastDemo from "@/components/ToastDemo";
 import { projects } from "@/lib/content";
+import CopyCommand from "@/components/CopyCommand";
+import ToastDemo from "@/components/ToastDemo";
 
 export default function Projects() {
   return (
-    <Section id="work" title="Selected work" label="Projects" className="sm:py-16">
-      <ul className="flex flex-col gap-4">
-        {projects.map((project) => (
-          <li key={project.name} className="card-butter group">
-            <div className="card-butter-inner p-5 sm:p-6">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-[16px] font-semibold tracking-tight text-ink">
-                  {project.name}
-                </h3>
-                <p className="text-[10px] tracking-[0.06em] text-muted">
-                  {project.meta}
-                </p>
-              </div>
-              <p className="mt-3 max-w-2xl text-[12.5px] leading-[1.7] text-ink/80">
-                {project.blurb}
-              </p>
-              <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-                <ul className="flex flex-wrap gap-1.5" aria-label="Tech">
-                  {project.tags.map((tag) => (
-                    <li
-                      key={tag}
-                      className="chip px-2 py-0.5 text-[10px] tracking-[0.04em]"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-                <ul className="flex gap-3">
-                  {project.links.map((link) => (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[11px] tracking-[0.06em] text-muted underline decoration-[var(--hairline-strong)] underline-offset-4 transition-colors hover:text-ink"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {project.demo ? <ToastDemo /> : null}
+    <div className="space-y-6">
+      {projects.map((project) => (
+        <article key={project.name}>
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 className="flex items-baseline gap-2.5 text-[14px] font-medium">
+              <span className="mono-num text-faint">{project.n}</span>
+              {project.name}
+            </h3>
+            <div className="flex items-baseline gap-4">
+              {project.links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link font-mono text-[10px] tracking-[0.04em] text-body"
+                >
+                  {link.label}
+                  {link.label === "live" && (
+                    <span
+                      className="pulse-dot mb-px ml-1.5 inline-block h-1.5 w-1.5 rounded-full bg-live align-middle"
+                      aria-hidden
+                    />
+                  )}
+                </a>
+              ))}
             </div>
-          </li>
-        ))}
-      </ul>
-    </Section>
+          </div>
+
+          <p className="mt-1.5 text-[13px] leading-[1.55] text-body">
+            {project.blurb}
+          </p>
+
+          <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
+            {project.command != null && (
+              <CopyCommand command={project.command} />
+            )}
+            <ul className="flex flex-wrap items-baseline gap-x-2 font-mono text-[10px] tracking-[0.04em] text-faint">
+              {project.tags.map((tag, index) => (
+                <li key={tag}>
+                  {index > 0 ? <span aria-hidden>·&nbsp;</span> : null}
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {project.demo && (
+            <div className="mt-3">
+              <ToastDemo />
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
   );
 }

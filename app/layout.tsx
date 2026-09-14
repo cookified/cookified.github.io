@@ -1,23 +1,30 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Inter_Tight, DM_Mono } from "next/font/google";
 import ToasterHost from "@/components/ToasterHost";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const interTight = Inter_Tight({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dmono",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Mithun Chakladar",
+  title: "mithun chakladar — design engineer",
   description:
-    "Design-minded builder in New Delhi. Quiet, reliable web apps that feel nice to use.",
+    "springs that settle the way your hand expects. interfaces, motion, and the code behind the feeling.",
   authors: [{ name: "Mithun Chakladar" }],
   openGraph: {
-    title: "Mithun Chakladar",
-    description: "Design-minded builder · New Delhi",
+    title: "mithun chakladar",
+    description: "design engineer · new delhi",
     type: "website",
   },
   icons: {
@@ -30,15 +37,20 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark");}}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
-        className={`${dmSans.variable} antialiased bg-canvas text-ink`}
+        className={`${interTight.variable} ${dmMono.variable} bg-paper text-ink antialiased`}
       >
         {children}
         <ToasterHost />

@@ -1,141 +1,124 @@
 export const identity = {
-  name: "Mithun Chakladar",
-  location: "New Delhi · India",
+  name: "mithun chakladar",
+  role: "design engineer",
+  location: "new delhi · india",
   email: "mithunchakladar123@gmail.com",
-  phone: "+91 8178958838",
-  phoneHref: "tel:+918178958838",
   github: "https://github.com/cookified",
-  githubHandle: "@cookified",
+  githubHandle: "cookified",
   linkedin: "https://linkedin.com/in/mithun-chakladar",
 };
 
-export const summary = [
-  "I build the quiet parts of software: the APIs, the security, the reliability that keep apps feeling solid. I sweat the small details that make them nice to use. Final-year engineering student in New Delhi.",
-  "Four of my open-source pull requests are merged across ros-controls, Ember, and Duat. A year of freelance design work left me with a stubborn standard: output that is correct, and still looks cared for.",
+export const intro = [
+  "I'm a design engineer based in New Delhi. I spent a year designing branding and thumbnails for esports before moving into software, and I bring the same attention to how things look and feel to the interfaces I build now.",
+  "Most of my work is the quiet part of a product: the motion, the feedback, and the small details you only notice when they are wrong.",
 ];
+
+export const openSource = {
+  repos: [
+    {
+      project: "ros-controls/ros2_controllers",
+      lang: "C++ · ROS 2",
+      href: "https://github.com/ros-controls/ros2_controllers",
+      prs: [
+        {
+          ref: "#2276",
+          title:
+            "Fix JointStateBroadcaster warning suppression so standard controller configurations compile cleanly",
+          href: "https://github.com/ros-controls/ros2_controllers/pull/2276",
+        },
+      ],
+    },
+    {
+      project: "niklasmarderx/ember",
+      lang: "Rust",
+      href: "https://github.com/niklasmarderx/ember",
+      prs: [
+        {
+          ref: "#35",
+          title: "Add --format to ember chat for scriptable CLI output",
+          href: "https://github.com/niklasmarderx/ember/pull/35",
+        },
+        {
+          ref: "#42",
+          title: "Add --json to ember config show for structured output",
+          href: "https://github.com/niklasmarderx/ember/pull/42",
+        },
+      ],
+    },
+    {
+      project: "AhoyISki/duat",
+      lang: "Rust",
+      href: "https://github.com/AhoyISki/duat",
+      prs: [
+        {
+          ref: "#51",
+          title:
+            "Add Night Owl colorscheme for low-contrast dark editing, configurable per theme option",
+          href: "https://github.com/AhoyISki/duat/pull/51",
+        },
+      ],
+    },
+  ],
+};
 
 export const projects = [
   {
-    name: "Toastify",
+    name: "toastify",
+    n: "01",
     blurb:
-      "Tactile, developer-first toast notifications for React & Next.js. Built on Motion spring physics with folder-stack animations — copy-paste or install via npm.",
-    meta: "@cookified/toastify",
+      "Tactile toast notifications for React, built on Motion spring physics with folder-stack animations and micro-beveled surfaces. A small lab for the physics of feel — and the toaster running on this page.",
+    command: "npm i @cookified/toastify",
     tags: ["React", "TypeScript", "Motion"],
     links: [
-      { label: "GitHub", href: "https://github.com/cookified/toastify" },
-      {
-        label: "npm",
-        href: "https://www.npmjs.com/package/@cookified/toastify",
-      },
+      { label: "github", href: "https://github.com/cookified/toastify" },
+      { label: "npm", href: "https://www.npmjs.com/package/@cookified/toastify" },
     ],
     demo: true as const,
   },
   {
-    name: "Konfide",
+    name: "konfide",
+    n: "02",
     blurb:
-      "Peer-to-peer mental-health support — live listener discovery, conversation requests, and permanent encrypted-at-rest chat. Talker and listener roles via Google OAuth and email/password, with production hardening (signed cookies, origin checks, rate limits, security headers).",
-    meta: "Next.js · Prisma · PostgreSQL · OAuth",
-    tags: ["Next.js", "Prisma", "PostgreSQL", "OAuth"],
+      "Peer-to-peer mental-health support, designed so that asking for help feels normal: a request–accept–chat flow with permanent history and distinct talker and listener roles.",
+    command: null,
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "OAuth"],
     links: [
-      { label: "Live", href: "https://konfide-flame.vercel.app" },
-      { label: "GitHub", href: "https://github.com/cookified/konfide" },
+      { label: "live", href: "https://konfide-flame.vercel.app" },
+      { label: "github", href: "https://github.com/cookified/konfide" },
     ],
     demo: false as const,
   },
 ];
 
-export const openSource = {
-  label: "4 merged",
-  note: "Additional PRs to tree-sitter and shadcn/ui are open under review.",
-  items: [
-    {
-      project: "ros-controls / ros2_controllers",
-      lang: "C++ / ROS 2",
-      detail:
-        "1 PR merged — Fixed JointStateBroadcaster warning suppression (#2276)",
-      href: "https://github.com/ros-controls/ros2_controllers/pull/2276",
-    },
-    {
-      project: "Ember",
-      lang: "Rust",
-      detail:
-        "2 PRs merged — Added --format to ember chat and --json to ember config show (#35, #42)",
-      href: "https://github.com/niklasmarderx/ember",
-    },
-    {
-      project: "Duat",
-      lang: "Rust",
-      detail: "1 PR merged — Night Owl colorscheme (#51)",
-      href: "https://github.com/AhoyISki/duat",
-    },
-  ],
+export const skills = [
+  { label: "languages", items: ["Python", "TypeScript", "C++", "Rust"] },
+  { label: "backend", items: ["Node.js", "Express"] },
+  { label: "frontend", items: ["React", "Next.js", "Tailwind CSS", "Motion"] },
+  { label: "data", items: ["PostgreSQL", "Firebase", "Prisma ORM"] },
+  { label: "tools", items: ["Git", "Docker", "Linux"] },
+  { label: "design", items: ["Figma", "Photoshop", "After Effects"] },
+];
+
+export const education = {
+  degree: "B.Tech, Computer Science & Engineering",
+  school: "MDU – SAITM",
+  place: "New Delhi",
+  period: "2023 – 2027",
 };
 
 export const experience = {
-  label: "1 year",
   role: "Freelance Graphic Designer",
   org: "Extraction Esports",
+  period: "1 year",
   alias: "@lichiofheaven",
   detail:
-    "Designed brand identities, posters, and tournament graphics for esports — thumbnails tuned for clicks without losing the taste. Shipped under the alias",
+    "Brand identities, posters, and tournament graphics for esports — thumbnails tuned for click-through without losing the taste.",
 };
 
-export const education = {
-  label: "2023–2027",
-  degree: "B.Tech Computer Science & Engineering",
-  school: "MDU – SAITM",
-  place: "New Delhi",
-};
-
-export const skills = [
+export const certifications = [
   {
-    label: "Languages",
-    items: [
-      { name: "Python", icon: "python" },
-      { name: "TypeScript", icon: "typescript" },
-      { name: "C++", icon: "cplusplus" },
-      { name: "Rust", icon: "rust" },
-    ],
-  },
-  {
-    label: "Backend",
-    items: [
-      { name: "Node.js", icon: "node" },
-      { name: "Express", icon: "express" },
-    ],
-  },
-  {
-    label: "Frontend",
-    items: [
-      { name: "React", icon: "react" },
-      { name: "Next.js", icon: "next" },
-      { name: "Tailwind CSS", icon: "tailwind" },
-      { name: "Motion", icon: "motion" },
-    ],
-  },
-  {
-    label: "Data",
-    items: [
-      { name: "PostgreSQL", icon: "postgres" },
-      { name: "Firebase", icon: "firebase" },
-      { name: "Prisma ORM", icon: "prisma" },
-    ],
-  },
-  {
-    label: "Tools",
-    items: [
-      { name: "Git", icon: "git" },
-      { name: "Docker", icon: "docker" },
-      { name: "Linux", icon: "linux" },
-    ],
-  },
-  {
-    label: "Design",
-    items: [
-      { name: "Figma", icon: "figma" },
-      { name: "Photoshop", icon: "photoshop" },
-      { name: "After Effects", icon: "aftereffects" },
-    ],
+    name: "Advanced Software Engineering Job Simulation",
+    issuer: "J.P. Morgan · Forage",
   },
 ];
 
@@ -143,14 +126,7 @@ export const achievements = [
   "1st place — SAITM Ideathon",
   "5 hackathons with shipped projects (Ignite Arena IIIT, GITM)",
   "4 merged open-source pull requests",
-  "JPMC Advanced Software Engineering (Forage)",
 ];
 
 export const contactBlurb =
-  "If you're building something thoughtful, I'd love to hear about it: design-minded product craft, and good conversations about software that feels good to use.";
-
-export const navLinks = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-];
+  "Building something that should feel better than it does? My inbox is open.";

@@ -1,61 +1,59 @@
 # Mithun Portfolio — Ship Notes
 
-Quiet cream portfolio for **Mithun Chakladar** (`@cookified`).
-Next.js 15 App Router · React 19 · TypeScript · Tailwind CSS v4 · static export.
+Compact editorial portfolio for **Mithun Chakladar** (`@cookified`), positioned as a design engineer.
+Next.js 15 App Router · React 19 · TypeScript · Tailwind CSS v4 · Motion springs · static export.
 
 ## Design notes
 
-- Palette: warm cream canvas (`#FFFFE8`), soft surface (`#F8F5E8` / `#F3EEDC`), warm charcoal ink (`#1A1914`), sage-olive muted (`#6B6758`), butter accent (`#FFF1B5`) used sparingly.
-- Typography is minimal and set entirely in DM Sans (300–700) — name/titles/body alike. Small sizes: body ~12–13px, labels ~10–11px, section titles ≤17px.
-- Feel: quiet, modern, minimal — gradient mesh background with hairline borders, generous whitespace, no serif, no icons/logos, no glass-heavy cards.
-- Content is resume-accurate: two projects only (Toastify, Konfide), plus Open Source, Experience, Education, Craft, Notes, Contact.
+- Concept: one narrow document column, hairline rules, small section labels. Everything in lowercase except real product and technology names (React, TypeScript, PostgreSQL).
+- Palette, light: warm paper (`#F4F2ED`), ink (`#1A1A19`), body grey (`#5C5B56`), faint grey (`#A1A09A`), accent midnight purple (`#5B3FA8`).
+- Palette, dark: paper (`#0C0B0A`), ink (`#F2EFE9`), body grey (`#A9A49C`), faint grey (`#6B665F`), accent lavender (`#B39DFF`).
+- Colour comes from three places: the purple accent on section labels, a soft purple radial wash behind the page (`.page-wash`), and the brand colours of the skill logos.
+- Skill logos use the real brand colour: each chip sets `--brand` inline (`components/Skills.tsx`), `.chip svg` paints from it, and dark mode lightens it with `color-mix(in srgb, var(--brand) 62%, #ffffff)` so dark marks like Next.js and Express stay visible.
+- The live indicator dot uses `--live` (green), the only other hue on the page.
+- Dark mode is class based: `ThemeToggle` in the masthead flips `.dark` on `<html>` and stores the choice in `localStorage` under `theme`. A blocking script in `app/layout.tsx` re-applies it before paint, so there is no flash.
+- Colour discipline: the accent is used for section labels, hover states and focus rings only. Body copy stays grey.- Typography: Inter Tight for text, DM Mono for numbers, metadata and commands. Body copy sits at 13–13.5px.
+- Length is a design constraint: the whole page is roughly one and a half viewport heights (≈1150px at desktop width). Adding a section should mean cutting something else.
+- Section order: intro, education, open source, selected work, background, skills, contact.
+- Motion: `components/Reveal.tsx` wraps each section in a small spring fade-in; `prefers-reduced-motion` turns it off. The live Toastify demo on the work section is the only interactive flourish.
+- All copy lives in `lib/content.ts`. Edit that file, not the components.
 
 ## Build
 
 ```bash
-cd mithun-portfolio
 npm install
-npm run build   # produces out/
+npm run dev     # local
+npm run build   # writes out/
+npm run lint    # eslint
 ```
 
 `next.config.ts` sets `output: "export"`, `images.unoptimized: true`, `trailingSlash: true` for GitHub Pages.
 
 ## Deploy to GitHub Pages
 
-1. Push this repo (or the `out/` folder via Actions).
-2. In GitHub → Settings → Pages → Source: GitHub Actions (recommended) or Deploy from branch.
-3. If publishing to `https://cookified.github.io/<repo>/`, set `basePath` and `assetPrefix` in `next.config.ts` to `"/<repo>"` before building.
-4. If publishing to a custom domain or `username.github.io` root, leave `basePath` unset.
-5. Point Pages at the `out/` directory (or use an Action that runs `npm run build` and uploads `out/`).
-
-Example minimal workflow idea: checkout → `npm ci` → `npm run build` → upload-pages-artifact from `./out` → deploy-pages.
-
-## Contribution calendar
-
-- Client component (`components/ContributionCalendar.tsx`) fetches  
-  `https://github-contributions-api.jogruber.de/v4/cookified` at runtime.
-- Styled with a buttery five-step theme for `react-activity-calendar`.
-- Caveat: depends on a third-party public API; if it is down or rate-limited, the section shows a soft fallback linking to GitHub. No secrets required. Static export cannot bake live contributions at build without a network fetch during CI — client fetch keeps the export simple.
-
-## Key files
-
-| Path | Role |
-|------|------|
-| `app/page.tsx` | Single-page composition |
-| `app/layout.tsx` | Fonts, metadata |
-| `app/globals.css` | Cream theme tokens + Tailwind v4 |
-| `next.config.ts` | Static export / Pages settings |
-| `components/Nav.tsx` | Minimal floating pill dock, text links only |
-| `components/Intro.tsx` | Clean-sans intro over a sunrise gradient wash |
-| `components/Projects.tsx` | Toastify + Konfide only, live Toastify demo |
-| `components/ContributionCalendar.tsx` | GitHub activity map (client) |
-| `components/Lists.tsx` | OpenSource, Experience, Education, Skills, Achievements |
-| `components/Contact.tsx` | Email, GitHub, LinkedIn, phone |
-| `components/Footer.tsx` | Gradient divider + © 2026 |
+1. Push to `cookified/cookified.github.io`.
+2. In GitHub → Settings → Pages → Source: GitHub Actions (recommended) or deploy the `out/` folder.
+3. This repo publishes at the `username.github.io` root, so no `basePath` is needed.
 
 ## Toastify
 
-- Mounted once in `app/layout.tsx` (`ToasterHost`), `animation="fade"`, themed
-  as big cream pills.
-- Toasts only fire from the Projects section (`ToastDemo` on the Toastify card)
-  — no global welcome toast, no header ping, no copy-to-clipboard toast.
+- Mounted once in `app/layout.tsx` (`ToasterHost`), `theme="light"`, `animation="fade"`, bottom-right.
+- Toasts only fire from the selected work section (`ToastDemo` on the toastify card).
+
+## Key files
+
+| path | role |
+|------|------|
+| `app/page.tsx` | Single-column composition and section order |
+| `app/layout.tsx` | Fonts (Inter Tight + DM Mono), metadata, no-flash theme script, ToasterHost |
+| `app/globals.css` | Paper theme tokens for light and dark, `.link`, `.marker`, `.chip`, `.mono-num` |
+| `lib/content.ts` | All copy and links — single source of truth |
+| `components/Masthead.tsx` | Name, role line, theme toggle |
+| `components/ThemeToggle.tsx` | Light/dark switch, writes `theme` to `localStorage` |
+| `components/Hero.tsx` | Intro paragraphs and contact links |
+| `components/Education.tsx` | Degree, school, dates |
+| `components/OpenSource.tsx` | Merged PR list with linked refs |
+| `components/Projects.tsx` | toastify and konfide, install command, live demo |
+| `components/Background.tsx` | Experience and markers |
+| `components/Skills.tsx` | Skill groups as chips |
+| `components/Contact.tsx`, `Footer.tsx` | Email and colophon |
