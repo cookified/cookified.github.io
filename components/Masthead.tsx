@@ -15,25 +15,6 @@ export default function Masthead() {
         </div>
         <ThemeToggle />
       </div>
-      <nav
-        aria-label="Page sections"
-        className="masthead-nav mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-[18px] border border-line-soft bg-paper-2/65 px-3.5 py-2.5 font-mono text-[10px] tracking-[0.04em] text-faint shadow-[0_10px_30px_rgba(91,63,168,0.04)]"
-      >
-        <span className="text-accent">index</span>
-        <span aria-hidden>/</span>
-        <a className="link" href="#oss">
-          open source
-        </a>
-        <a className="link" href="#work">
-          work
-        </a>
-        <a className="link" href="#skills">
-          skills
-        </a>
-        <a className="link" href="#contact">
-          contact
-        </a>
-      </nav>
     </header>
   );
 }

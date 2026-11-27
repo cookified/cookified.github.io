@@ -3,13 +3,14 @@ import { HeroStickerCluster } from "@/components/StickerAccent";
 
 export default function Hero() {
   return (
-    <section className="hero-section pt-7 pb-7">
-      <div className="hero-intro-row">
-        <div className="hero-copy max-w-xl space-y-3">
-          <p className="text-[13.5px] leading-[1.6] text-body">{intro[0]}</p>
-          <p className="text-[13.5px] leading-[1.6] text-ink">{intro[1]}</p>
-        </div>
-        <HeroStickerCluster />
+    <section className="hero-section relative pt-8 pb-5">
+      <HeroStickerCluster />
+      <div className="hero-copy relative z-[1] max-w-xl space-y-3">
+        <p className="hero-hello" aria-hidden="true">
+          hello · hola · bonjour
+        </p>
+        <p className="text-[13.5px] leading-[1.6] text-body">{intro[0]}</p>
+        <p className="text-[13.5px] leading-[1.6] text-ink">{intro[1]}</p>
       </div>
 
       <div className="mt-5 flex flex-wrap items-baseline gap-x-5 gap-y-2">

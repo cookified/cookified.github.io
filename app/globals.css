@@ -3,13 +3,13 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --paper: #ffffff;
-  --paper-2: #fffdfd;
+  --paper: #fffdf8;
+  --paper-2: #fffaf3;
   --ink: #1a1a19;
-  --body: #5c5b56;
-  --faint: #a1a09a;
-  --line: rgba(26, 26, 25, 0.13);
-  --line-soft: rgba(26, 26, 25, 0.07);
+  --body: #68645f;
+  --faint: #a7a29b;
+  --line: rgba(73, 63, 54, 0.13);
+  --line-soft: rgba(73, 63, 54, 0.07);
   --accent: #5b3fa8;
   --accent-deep: #4a3390;
   --wash: rgba(96, 165, 250, 0.3);
@@ -148,6 +148,19 @@ body {
     font-family: var(--font-display-stack);
     text-wrap: balance;
   }
+  .hero-hello {
+    width: fit-content;
+    margin-bottom: 1rem;
+    color: color-mix(in srgb, var(--accent) 72%, var(--body));
+    font-family: var(--font-display-stack);
+    font-size: clamp(2rem, 6vw, 3.15rem);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.085em;
+    line-height: 0.95;
+    text-wrap: balance;
+    transform: skewX(-5deg);
+  }
   .masthead-nav {
     backdrop-filter: blur(16px) saturate(1.05);
     -webkit-backdrop-filter: blur(16px) saturate(1.05);
@@ -182,16 +195,11 @@ body {
   .section-label-row:hover .section-sticker {
     transform: rotate(5deg) translateY(-2px) scale(1.08);
   }
-  .hero-intro-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 132px;
-    align-items: start;
-    gap: 12px;
-  }
   .hero-sticker-cluster {
-    position: relative;
-    top: -8px;
-    right: auto;
+    position: absolute;
+    z-index: 0;
+    top: -20px;
+    right: -8px;
     width: 132px;
     height: 112px;
     pointer-events: none;
@@ -226,14 +234,38 @@ body {
     position: fixed;
     inset: 0;
     z-index: -1;
-    opacity: 0.96;
-    filter: blur(34px);
+    opacity: 0.78;
+    filter: blur(48px);
     transform: scale(1.12);
     background:
-      radial-gradient(42rem 28rem at 8% 4%, rgba(244, 114, 182, 0.5), transparent 68%),
-      radial-gradient(40rem 30rem at 92% 18%, rgba(96, 165, 250, 0.46), transparent 68%),
-      radial-gradient(46rem 32rem at 50% 102%, rgba(167, 139, 250, 0.32), transparent 72%),
-      linear-gradient(118deg, rgba(255, 192, 221, 0.16), rgba(147, 197, 253, 0.2));
+      radial-gradient(42rem 28rem at 8% 4%, rgba(255, 205, 225, 0.58), transparent 68%),
+      radial-gradient(40rem 30rem at 92% 18%, rgba(174, 218, 255, 0.48), transparent 68%),
+      radial-gradient(46rem 32rem at 50% 102%, rgba(219, 202, 255, 0.36), transparent 72%),
+      linear-gradient(118deg, rgba(255, 246, 228, 0.28), rgba(220, 237, 255, 0.24));
+  }
+
+  .footer-art {
+    position: relative;
+    isolation: isolate;
+    min-height: 238px;
+    overflow: hidden;
+    border: 1px solid var(--line-soft);
+    border-radius: 30px 30px 22px 22px;
+    background: url("/footer-rain.jpg") center 58% / cover no-repeat;
+    box-shadow: 0 24px 70px rgba(44, 75, 89, 0.16);
+    opacity: 0.9;
+  }
+  .footer-art::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      var(--paper) 0%,
+      color-mix(in srgb, var(--paper) 78%, transparent) 17%,
+      transparent 52%,
+      rgba(9, 25, 32, 0.16) 100%
+    );
+    content: "";
   }
 
   .page-glass-blur {
@@ -350,21 +382,11 @@ body {
   }
 }
 @media (max-width: 640px) {
-  .hero-intro-row {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
   .hero-sticker-cluster {
-    top: 0;
-    align-self: flex-end;
-    transform: scale(0.7);
+    top: -12px;
+    right: -10px;
+    transform: scale(0.64);
     transform-origin: top right;
-    margin-top: -2px;
-    margin-bottom: -28px;
-  }
-  .hero-copy {
-    max-width: 100%;
   }
 }
 
