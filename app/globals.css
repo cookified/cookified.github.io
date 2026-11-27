@@ -1,10 +1,8 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
-  --paper: #f4f2ed;
-  --paper-2: #fbfaf7;
+  --paper: #ffffff;
+  --paper-2: #fffdfd;
   --ink: #1a1a19;
   --body: #5c5b56;
   --faint: #a1a09a;
@@ -12,24 +10,10 @@
   --line-soft: rgba(26, 26, 25, 0.07);
   --accent: #5b3fa8;
   --accent-deep: #4a3390;
-  --wash: rgba(91, 63, 168, 0.07);
+  --wash: rgba(244, 114, 182, 0.14);
   --live: #2f9e44;
   --font-inter: "Arial", "Helvetica Neue", sans-serif;
   --font-dmono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", ui-monospace, monospace;
-}
-
-.dark {
-  --paper: #0c0b0a;
-  --paper-2: #151413;
-  --ink: #f2efe9;
-  --body: #a9a49c;
-  --faint: #6b665f;
-  --line: rgba(242, 239, 233, 0.13);
-  --line-soft: rgba(242, 239, 233, 0.06);
-  --accent: #b39dff;
-  --accent-deep: #9c7bff;
-  --wash: rgba(140, 110, 255, 0.12);
-  --live: #56d364;
 }
 
 @theme inline {
@@ -64,27 +48,6 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  ::view-transition-old(root) {
-    animation: none;
-  }
-  ::view-transition-new(root) {
-    animation: theme-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-}
-
-@keyframes theme-reveal {
-  from {
-    clip-path: circle(0% at var(--theme-x, 100%) var(--theme-y, 0%));
-  }
-  to {
-    clip-path: circle(150% at var(--theme-x, 100%) var(--theme-y, 0%));
-  }
 }
 
 ::selection {
@@ -137,18 +100,18 @@ body {
     color: var(--brand, currentColor);
   }
 
-  .dark .chip svg {
-    color: color-mix(in srgb, var(--brand, currentColor) 62%, #ffffff);
-  }
-
   .page-wash {
     pointer-events: none;
     position: fixed;
     inset: 0;
     z-index: -1;
+    opacity: 0.82;
+    filter: blur(28px);
+    transform: scale(1.08);
     background:
-      radial-gradient(52rem 32rem at 82% -12%, var(--wash), transparent 62%),
-      radial-gradient(42rem 28rem at -12% 32%, var(--wash), transparent 66%);
+      radial-gradient(38rem 26rem at 12% 5%, rgba(251, 207, 232, 0.72), transparent 68%),
+      radial-gradient(34rem 26rem at 88% 26%, var(--wash), transparent 70%),
+      radial-gradient(36rem 28rem at 48% 100%, rgba(254, 226, 226, 0.6), transparent 72%);
   }
 
   .link {
