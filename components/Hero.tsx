@@ -1,11 +1,15 @@
 import { identity, intro } from "@/lib/content";
+import { HeroStickerCluster } from "@/components/StickerAccent";
 
 export default function Hero() {
   return (
-    <section className="pt-5 pb-6">
-      <div className="max-w-2xl space-y-3">
-        <p className="text-[13.5px] leading-[1.6] text-body">{intro[0]}</p>
-        <p className="text-[13.5px] leading-[1.6] text-ink">{intro[1]}</p>
+    <section className="hero-section pt-7 pb-7">
+      <div className="hero-intro-row">
+        <div className="hero-copy max-w-xl space-y-3">
+          <p className="text-[13.5px] leading-[1.6] text-body">{intro[0]}</p>
+          <p className="text-[13.5px] leading-[1.6] text-ink">{intro[1]}</p>
+        </div>
+        <HeroStickerCluster />
       </div>
 
       <div className="mt-5 flex flex-wrap items-baseline gap-x-5 gap-y-2">

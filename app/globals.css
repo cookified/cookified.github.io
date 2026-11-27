@@ -140,6 +140,57 @@ body {
   .masthead-meta {
     color: color-mix(in srgb, var(--body) 78%, var(--paper));
   }
+  .section-label-row {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    gap: 8px;
+  }
+  .section-sticker {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    opacity: 0.88;
+    transform: rotate(-7deg);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .section-label-row:hover .section-sticker {
+    transform: rotate(5deg) translateY(-2px) scale(1.08);
+  }
+  .hero-intro-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 132px;
+    align-items: start;
+    gap: 12px;
+  }
+  .hero-sticker-cluster {
+    position: relative;
+    top: -8px;
+    right: auto;
+    width: 132px;
+    height: 112px;
+    pointer-events: none;
+  }
+  .hero-sticker-cluster .hero-sticker {
+    position: absolute;
+    pointer-events: auto;
+    overflow: visible;
+  }
+  .hero-sticker-sparkles {
+    top: 0;
+    right: 5px;
+    transform: rotate(8deg);
+  }
+  .hero-sticker-cat {
+    top: 36px;
+    left: 23px;
+    transform: rotate(-10deg);
+  }
+  .hero-sticker-flame {
+    right: 1px;
+    bottom: 2px;
+    transform: rotate(13deg);
+  }
 
   .dark .chip svg {
     color: color-mix(in srgb, var(--brand, currentColor) 62%, #ffffff);
@@ -271,6 +322,24 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .pulse-dot {
     animation: none;
+  }
+}
+@media (max-width: 640px) {
+  .hero-intro-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hero-sticker-cluster {
+    top: 0;
+    align-self: flex-end;
+    transform: scale(0.7);
+    transform-origin: top right;
+    margin-top: -2px;
+    margin-bottom: -28px;
+  }
+  .hero-copy {
+    max-width: 100%;
   }
 }
 
