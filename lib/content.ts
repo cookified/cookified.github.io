@@ -83,8 +83,21 @@ export const projects = [
     command: null,
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "OAuth"],
     links: [
-      { label: "live", href: "https://konfide-flame.vercel.app" },
+      { label: "live", href: "https://konfide-nu.vercel.app" },
       { label: "github", href: "https://github.com/cookified/konfide" },
+    ],
+    demo: false as const,
+  },
+  {
+    name: "versatile",
+    n: "03",
+    blurb:
+      "A gig marketplace for gamers and esports organizations, with milestone-based contracts, IPFS-pinned deliverables, and escrow-aware workflows for short-term opportunities.",
+    command: null,
+    tags: ["React", "Vite", "IPFS", "Escrow"],
+    links: [
+      { label: "live", href: "https://versatile-frontend-tan.vercel.app" },
+      { label: "github", href: "https://github.com/cookified/versatile-frontend" },
     ],
     demo: false as const,
   },

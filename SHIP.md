@@ -12,7 +12,8 @@ Next.js 15 App Router · React 19 · TypeScript · Tailwind CSS v4 · Motion spr
 - Skill logos use the real brand colour: each chip sets `--brand` inline (`components/Skills.tsx`), `.chip svg` paints from it, and dark mode lightens it with `color-mix(in srgb, var(--brand) 62%, #ffffff)` so dark marks like Next.js and Express stay visible.
 - The live indicator dot uses `--live` (green), the only other hue on the page.
 - Dark mode is class based: `ThemeToggle` in the masthead flips `.dark` on `<html>` and stores the choice in `localStorage` under `theme`. A blocking script in `app/layout.tsx` re-applies it before paint, so there is no flash.
-- Colour discipline: the accent is used for section labels, hover states and focus rings only. Body copy stays grey.- Typography: Inter Tight for text, DM Mono for numbers, metadata and commands. Body copy sits at 13–13.5px.
+- Colour discipline: the accent is used for section labels, hover states and focus rings only. Body copy stays grey.
+- Typography: a local system sans stack for text and a local monospace stack for numbers, metadata and commands. Body copy sits at 13–13.5px.
 - Length is a design constraint: the whole page is roughly one and a half viewport heights (≈1150px at desktop width). Adding a section should mean cutting something else.
 - Section order: intro, education, open source, selected work, background, skills, contact.
 - Motion: `components/Reveal.tsx` wraps each section in a small spring fade-in; `prefers-reduced-motion` turns it off. The live Toastify demo on the work section is the only interactive flourish.
@@ -53,7 +54,7 @@ npm run lint    # eslint
 | `components/Hero.tsx` | Intro paragraphs and contact links |
 | `components/Education.tsx` | Degree, school, dates |
 | `components/OpenSource.tsx` | Merged PR list with linked refs |
-| `components/Projects.tsx` | toastify and konfide, install command, live demo |
+| `components/Projects.tsx` | selected work cards, install command, live demo |
 | `components/Background.tsx` | Experience and markers |
 | `components/Skills.tsx` | Skill groups as chips |
 | `components/Contact.tsx`, `Footer.tsx` | Email and colophon |

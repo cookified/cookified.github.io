@@ -1,21 +1,6 @@
 import type { Metadata } from "next";
-import { Inter_Tight, DM_Mono } from "next/font/google";
 import ToasterHost from "@/components/ToasterHost";
 import "./globals.css";
-
-const interTight = Inter_Tight({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-dmono",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "mithun chakladar — design engineer",
@@ -49,9 +34,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body
-        className={`${interTight.variable} ${dmMono.variable} bg-paper text-ink antialiased`}
-      >
+      <body className="bg-paper text-ink antialiased">
         {children}
         <ToasterHost />
       </body>

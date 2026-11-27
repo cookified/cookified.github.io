@@ -14,6 +14,8 @@
   --accent-deep: #4a3390;
   --wash: rgba(91, 63, 168, 0.07);
   --live: #2f9e44;
+  --font-inter: "Arial", "Helvetica Neue", sans-serif;
+  --font-dmono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", ui-monospace, monospace;
 }
 
 .dark {
