@@ -1,9 +1,10 @@
 import { identity } from "@/lib/content";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Masthead() {
   return (
     <header>
-      <div>
+      <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="text-[19px] font-medium tracking-[-0.01em]">
             {identity.name}
@@ -12,6 +13,7 @@ export default function Masthead() {
             {identity.role} · {identity.location}
           </p>
         </div>
+        <ThemeToggle />
       </div>
     </header>
   );

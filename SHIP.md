@@ -6,11 +6,11 @@ Next.js 15 App Router · React 19 · TypeScript · Tailwind CSS v4 · Motion spr
 ## Design notes
 
 - Concept: one narrow document column, hairline rules, small section labels. Everything in lowercase except real product and technology names (React, TypeScript, PostgreSQL).
-- Palette: white canvas (`#FFFFFF`), ink (`#1A1A19`), body grey (`#5C5B56`), faint grey (`#A1A09A`), accent midnight purple (`#5B3FA8`).
-- Colour comes from three places: the purple accent on section labels, a soft pink blurred radial wash behind the page (`.page-wash`), and the brand colours of the skill logos.
-- Skill logos use the real brand colour: each chip sets `--brand` inline (`components/Skills.tsx`), and `.chip svg` paints from it.
+- Palette, light default: white canvas (`#FFFFFF`), ink (`#1A1A19`), body grey (`#5C5B56`), faint grey (`#A1A09A`), accent midnight purple (`#5B3FA8`). Dark mode remains available through the masthead toggle.
+- Colour comes from three places: the purple accent on section labels, a visible pink-to-blue blurred radial wash behind the page (`.page-wash`), and the brand colours of the skill logos.
+- Skill logos use the real brand colour: each chip sets `--brand` inline (`components/Skills.tsx`), and `.chip svg` paints from it; dark mode lightens the marks for contrast.
 - The live indicator dot uses `--live` (green), the only other hue on the page.
-- The portfolio is intentionally light-only so the white canvas stays the primary visual anchor.
+- White mode is the default visual anchor; the masthead toggle can switch to dark mode when preferred.
 - Colour discipline: the accent is used for section labels, hover states and focus rings only. Body copy stays grey.
 - Typography: a local system sans stack for text and a local monospace stack for numbers, metadata and commands. Body copy sits at 13–13.5px.
 - Length is a design constraint: the whole page is roughly one and a half viewport heights (≈1150px at desktop width). Adding a section should mean cutting something else.
@@ -45,10 +45,11 @@ npm run lint    # eslint
 | path | role |
 |------|------|
 | `app/page.tsx` | Single-column composition and section order |
-| `app/layout.tsx` | Metadata and ToasterHost |
-| `app/globals.css` | White theme tokens, pink `.page-wash`, `.link`, `.marker`, `.chip`, `.mono-num` |
+| `app/layout.tsx` | Fonts, metadata, theme preference script, ToasterHost |
+| `app/globals.css` | Light/dark theme tokens, pink-to-blue `.page-wash`, `.link`, `.marker`, `.chip`, `.mono-num` |
 | `lib/content.ts` | All copy and links — single source of truth |
-| `components/Masthead.tsx` | Name and role line |
+| `components/Masthead.tsx` | Name, role line and theme toggle |
+| `components/ThemeToggle.tsx` | Light/dark switch, writes `theme` to `localStorage` |
 | `components/Hero.tsx` | Intro paragraphs and contact links |
 | `components/Education.tsx` | Degree, school, dates |
 | `components/OpenSource.tsx` | Merged PR list with linked refs |
