@@ -6,7 +6,10 @@ export default function Projects() {
   return (
     <div className="space-y-6">
       {projects.map((project) => (
-        <article key={project.name}>
+        <article
+          key={project.name}
+          className="project-card rounded-[22px] border border-line-soft bg-paper-2/55 p-4 shadow-[0_18px_50px_rgba(91,63,168,0.05)] transition-shadow duration-300 hover:shadow-[0_22px_60px_rgba(91,63,168,0.09)]"
+        >
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <h3 className="flex items-baseline gap-2.5 text-[14px] font-medium">
               <span className="mono-num text-faint">{project.n}</span>

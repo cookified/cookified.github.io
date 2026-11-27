@@ -14,7 +14,8 @@
   --accent-deep: #4a3390;
   --wash: rgba(96, 165, 250, 0.3);
   --live: #2f9e44;
-  --font-inter: "Avenir Next", "Nunito Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-inter: "SF Pro Text", "SF Pro Display", "Avenir Next", "Nunito Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display-stack: "SF Pro Display", "SF Pro Text", "Avenir Next", "Nunito Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-dmono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", ui-monospace, monospace;
 }
 
@@ -45,6 +46,7 @@
   --color-live: var(--live);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-dmono);
+  --font-display: var(--font-display-stack);
 }
 
 * {
@@ -64,6 +66,7 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
   transition:
     background-color 0.35s ease,
     color 0.35s ease;
@@ -124,13 +127,35 @@ body {
   }
 
   .chip {
-    border-radius: 3px;
+    border-radius: 999px;
     border: 1px solid var(--line);
     background: var(--paper-2);
     padding: 3px 8px;
     font-family: var(--font-dmono), ui-monospace, monospace;
     font-size: 10.5px;
     color: var(--body);
+    transition:
+      border-color 0.25s ease,
+      background-color 0.25s ease,
+      transform 0.25s ease;
+  }
+  .chip:hover {
+    border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+    background: color-mix(in srgb, var(--paper-2) 78%, var(--accent));
+    transform: translateY(-1px);
+  }
+  .masthead-title {
+    font-family: var(--font-display-stack);
+    text-wrap: balance;
+  }
+  .masthead-nav {
+    backdrop-filter: blur(16px) saturate(1.05);
+    -webkit-backdrop-filter: blur(16px) saturate(1.05);
+  }
+  .project-card {
+    isolation: isolate;
+    backdrop-filter: blur(18px) saturate(1.04);
+    -webkit-backdrop-filter: blur(18px) saturate(1.04);
   }
 
   .chip svg {

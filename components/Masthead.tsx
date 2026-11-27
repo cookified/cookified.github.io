@@ -6,7 +6,7 @@ export default function Masthead() {
     <header>
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-[19px] font-medium tracking-[-0.01em]">
+          <h1 className="masthead-title text-[21px] font-medium tracking-[-0.035em]">
             {identity.name}
           </h1>
           <p className="masthead-meta mt-1 font-mono text-[10.5px] tracking-[0.07em]">
@@ -17,7 +17,7 @@ export default function Masthead() {
       </div>
       <nav
         aria-label="Page sections"
-        className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-line-soft pt-3 font-mono text-[10px] tracking-[0.04em] text-faint"
+        className="masthead-nav mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-[18px] border border-line-soft bg-paper-2/65 px-3.5 py-2.5 font-mono text-[10px] tracking-[0.04em] text-faint shadow-[0_10px_30px_rgba(91,63,168,0.04)]"
       >
         <span className="text-accent">index</span>
         <span aria-hidden>/</span>

@@ -37,7 +37,7 @@ export default function ToastDemo() {
           key={demo.label}
           type="button"
           onClick={demo.fire}
-          className="rounded-full border border-line bg-paper-2 px-3.5 py-1 font-mono text-[10.5px] tracking-[0.04em] text-body transition-all duration-200 hover:-translate-y-px hover:border-accent hover:text-accent"
+          className="rounded-[14px] border border-line bg-paper-2 px-3.5 py-1.5 font-mono text-[10.5px] tracking-[0.04em] text-body transition-all duration-200 hover:-translate-y-px hover:border-accent hover:text-accent"
         >
           {demo.label}
         </button>
