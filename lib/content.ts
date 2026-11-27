@@ -65,6 +65,7 @@ export const projects = [
   {
     name: "toastify",
     n: "01",
+    preview: "/project-previews/toastify.webp",
     blurb:
       "Tactile toast notifications for React, built on Motion spring physics with folder-stack animations and micro-beveled surfaces. A small lab for the physics of feel — and the toaster running on this page.",
     command: "npm i @cookified/toastify",
@@ -79,6 +80,7 @@ export const projects = [
   {
     name: "konfide",
     n: "02",
+    preview: "/project-previews/konfide.webp",
     blurb:
       "Peer-to-peer mental-health support, designed so that asking for help feels normal: a request–accept–chat flow with permanent history and distinct talker and listener roles.",
     command: null,
@@ -92,6 +94,7 @@ export const projects = [
   {
     name: "versatile",
     n: "03",
+    preview: "/project-previews/versatile.webp",
     blurb:
       "A gig marketplace for gamers and esports organizations, with milestone-based contracts, IPFS-pinned deliverables, and escrow-aware workflows for short-term opportunities.",
     command: null,

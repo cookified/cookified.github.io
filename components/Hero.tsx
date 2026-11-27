@@ -9,8 +9,8 @@ export default function Hero() {
         <p className="hero-hello" aria-hidden="true">
           hello · hola · bonjour
         </p>
-        <p className="text-[13.5px] leading-[1.6] text-body">{intro[0]}</p>
-        <p className="text-[13.5px] leading-[1.6] text-ink">{intro[1]}</p>
+        <p className="text-[14.5px] leading-[1.65] text-body">{intro[0]}</p>
+        <p className="text-[14.5px] leading-[1.65] text-ink">{intro[1]}</p>
       </div>
 
       <div className="mt-5 flex flex-wrap items-baseline gap-x-5 gap-y-2">

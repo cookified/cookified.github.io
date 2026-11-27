@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="footer-wrap mt-10">
       <div
-        className="footer-art"
+        className="footer-art footer-art-bleed"
         role="img"
         aria-label="Rainy blue landscape with two figures under an umbrella"
       />

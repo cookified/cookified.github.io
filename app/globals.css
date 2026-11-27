@@ -10,8 +10,8 @@
   --faint: #a7a29b;
   --line: rgba(73, 63, 54, 0.13);
   --line-soft: rgba(73, 63, 54, 0.07);
-  --accent: #5b3fa8;
-  --accent-deep: #4a3390;
+  --accent: #6557bf;
+  --accent-deep: #4f439f;
   --wash: rgba(96, 165, 250, 0.3);
   --live: #2f9e44;
   --font-inter: "SF Pro Text", "SF Pro Display", "Avenir Next", "Nunito Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -20,17 +20,17 @@
 }
 
 .dark {
-  --paper: #111318;
-  --paper-2: #1b1f29;
-  --ink: #f8fafc;
-  --body: #d4d9e2;
-  --faint: #aab2c0;
-  --line: rgba(248, 250, 252, 0.2);
-  --line-soft: rgba(248, 250, 252, 0.1);
-  --accent: #c4b5fd;
-  --accent-deep: #a78bfa;
-  --wash: rgba(96, 165, 250, 0.24);
-  --live: #86efac;
+  --paper: #080a0f;
+  --paper-2: #10141c;
+  --ink: #eef1f5;
+  --body: #b4bcc8;
+  --faint: #7f8998;
+  --line: rgba(238, 241, 245, 0.16);
+  --line-soft: rgba(238, 241, 245, 0.08);
+  --accent: #a89bf5;
+  --accent-deep: #c5bcff;
+  --wash: rgba(92, 109, 186, 0.18);
+  --live: #7de0a0;
 }
 
 @theme inline {
@@ -170,6 +170,27 @@ body {
     backdrop-filter: blur(18px) saturate(1.04);
     -webkit-backdrop-filter: blur(18px) saturate(1.04);
   }
+  .project-preview {
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--line-soft);
+    border-radius: 16px;
+    background: var(--paper);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+  .project-preview-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: saturate(0.94) contrast(0.98);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+  }
+  .project-card:hover .project-preview-image {
+    transform: scale(1.018);
+    filter: saturate(1) contrast(1);
+  }
 
   .chip svg {
     color: var(--brand, currentColor);
@@ -243,17 +264,29 @@ body {
       radial-gradient(46rem 32rem at 50% 102%, rgba(219, 202, 255, 0.36), transparent 72%),
       linear-gradient(118deg, rgba(255, 246, 228, 0.28), rgba(220, 237, 255, 0.24));
   }
+  .dark .page-wash {
+    opacity: 0.9;
+    background:
+      radial-gradient(42rem 28rem at 5% 0%, rgba(54, 61, 112, 0.2), transparent 68%),
+      radial-gradient(40rem 30rem at 96% 12%, rgba(22, 77, 105, 0.18), transparent 68%),
+      radial-gradient(46rem 32rem at 50% 100%, rgba(69, 42, 103, 0.16), transparent 72%),
+      linear-gradient(118deg, rgba(13, 18, 30, 0.24), rgba(8, 10, 15, 0.12));
+  }
 
   .footer-art {
     position: relative;
     isolation: isolate;
-    min-height: 238px;
+    min-height: clamp(260px, 34vw, 430px);
     overflow: hidden;
     border: 1px solid var(--line-soft);
-    border-radius: 30px 30px 22px 22px;
+    border-radius: 0;
     background: url("/footer-rain.jpg") center 58% / cover no-repeat;
     box-shadow: 0 24px 70px rgba(44, 75, 89, 0.16);
     opacity: 0.9;
+  }
+  .footer-art-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
   }
   .footer-art::before {
     position: absolute;
