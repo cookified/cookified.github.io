@@ -15,6 +15,7 @@ export default function Home() {
   return (
     <div className="relative">
       <div className="page-wash" aria-hidden />
+      <div className="page-glass-blur" aria-hidden />
       <div className="mx-auto w-full max-w-2xl px-6 py-7 sm:px-8 sm:py-9">
         <Masthead />
         <main>
