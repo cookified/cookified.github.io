@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark");}}catch(e){}})();`;
+const themeScript = `(function(){try{var dark=localStorage.getItem("theme")==="dark";document.documentElement.classList.toggle("dark",dark);}catch(e){}})();`;
 
 export default function RootLayout({
   children,

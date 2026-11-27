@@ -14,22 +14,22 @@
   --accent-deep: #4a3390;
   --wash: rgba(96, 165, 250, 0.3);
   --live: #2f9e44;
-  --font-inter: "Arial", "Helvetica Neue", sans-serif;
+  --font-inter: "Avenir Next", "Nunito Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-dmono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", ui-monospace, monospace;
 }
 
 .dark {
-  --paper: #0c0b0a;
-  --paper-2: #151413;
-  --ink: #f2efe9;
-  --body: #a9a49c;
-  --faint: #6b665f;
-  --line: rgba(242, 239, 233, 0.13);
-  --line-soft: rgba(242, 239, 233, 0.06);
-  --accent: #b39dff;
-  --accent-deep: #9c7bff;
+  --paper: #111318;
+  --paper-2: #1b1f29;
+  --ink: #f8fafc;
+  --body: #d4d9e2;
+  --faint: #aab2c0;
+  --line: rgba(248, 250, 252, 0.2);
+  --line-soft: rgba(248, 250, 252, 0.1);
+  --accent: #c4b5fd;
+  --accent-deep: #a78bfa;
   --wash: rgba(96, 165, 250, 0.24);
-  --live: #56d364;
+  --live: #86efac;
 }
 
 @theme inline {
@@ -60,7 +60,7 @@
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-inter);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
