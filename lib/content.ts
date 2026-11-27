@@ -70,6 +70,7 @@ export const projects = [
     command: "npm i @cookified/toastify",
     tags: ["React", "TypeScript", "Motion"],
     links: [
+      { label: "website", href: "https://toastify-peach.vercel.app" },
       { label: "github", href: "https://github.com/cookified/toastify" },
       { label: "npm", href: "https://www.npmjs.com/package/@cookified/toastify" },
     ],
