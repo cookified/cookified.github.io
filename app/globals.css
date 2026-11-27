@@ -137,6 +137,10 @@ body {
     color: var(--brand, currentColor);
   }
 
+  .masthead-meta {
+    color: color-mix(in srgb, var(--body) 78%, var(--paper));
+  }
+
   .dark .chip svg {
     color: color-mix(in srgb, var(--brand, currentColor) 62%, #ffffff);
   }
@@ -180,6 +184,48 @@ body {
   .link:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  .glass-link {
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 4px 9px;
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease,
+      background-color 0.25s ease,
+      box-shadow 0.35s ease,
+      backdrop-filter 0.35s ease;
+  }
+
+  .glass-link::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 45% -18% -90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(224, 231, 255, 0.56));
+    filter: blur(12px);
+    opacity: 0;
+    transform: translateY(18px) scale(1.08);
+    transition:
+      opacity 0.35s ease,
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .glass-link:hover {
+    color: var(--ink);
+    border-color: color-mix(in srgb, var(--paper) 72%, var(--line));
+    background-color: color-mix(in srgb, var(--paper) 42%, transparent);
+    box-shadow: 0 8px 24px rgba(91, 63, 168, 0.12);
+    backdrop-filter: blur(10px) saturate(1.12);
+  }
+
+  .glass-link:hover::before {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 

@@ -9,7 +9,7 @@ export default function Masthead() {
           <h1 className="text-[19px] font-medium tracking-[-0.01em]">
             {identity.name}
           </h1>
-          <p className="mt-1 font-mono text-[10.5px] tracking-[0.04em] text-faint">
+          <p className="masthead-meta mt-1 font-mono text-[10.5px] tracking-[0.07em]">
             {identity.role} · {identity.location}
           </p>
         </div>

@@ -123,7 +123,7 @@ export const experience = {
   role: "Freelance Graphic Designer",
   org: "Extraction Esports",
   period: "1 year",
-  alias: "@lichiofheaven",
+  alias: "@midtwttr",
   instagram: "https://www.instagram.com/midtwttr/",
   detail:
     "Brand identities, posters, and tournament graphics for esports — thumbnails tuned for click-through without losing the taste.",

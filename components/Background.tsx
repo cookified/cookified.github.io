@@ -12,7 +12,7 @@ export default function Background() {
         {experience.period} · shipped as {experience.alias}
       </p>
       <a
-        className="link mt-2 inline-block font-mono text-[10px] tracking-[0.04em] text-body"
+        className="link glass-link mt-2 inline-flex font-mono text-[10px] tracking-[0.04em] text-body"
         href={experience.instagram}
         target="_blank"
         rel="noreferrer"
